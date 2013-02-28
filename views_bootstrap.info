@@ -1,1 +1,9 @@
 name = Views Bootstrap
+core = 7.x
+package = Views
+description = Bootstrap Components
+
+dependencies[] = views
+
+files[] = plugins/views_bootstrap_carousel_plugin_style.inc
+files[] = plugins/views_bootstrap_carousel_plugin_rows.inc
