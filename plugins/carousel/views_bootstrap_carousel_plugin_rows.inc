@@ -38,6 +38,7 @@ class ViewsBootstrapCarouselPluginRows extends views_plugin_row {
 
     $form['image'] = array(
       '#type' => 'select',
+      '#required' => TRUE,
       '#title' => t('Image'),
       '#options' => $fields,
       '#default_value' => $this->options['image'],
