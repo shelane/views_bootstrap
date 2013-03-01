@@ -7,3 +7,7 @@ dependencies[] = views
 
 files[] = plugins/views_bootstrap_carousel_plugin_style.inc
 files[] = plugins/views_bootstrap_carousel_plugin_rows.inc
+
+;@TODO: Add Collapse (accordion)
+;@TODO: Add Thumbnails
+;@TODO: Add Tabbable in any direction (?)

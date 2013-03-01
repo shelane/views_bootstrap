@@ -23,7 +23,7 @@ function views_bootstrap_views_plugins() {
         'theme file' => 'theme.inc',
         'uses row plugin' => TRUE,
         'uses grouping' => FALSE,
-        'uses options' => TRUE,
+        'uses options' => FALSE,
         'type' => 'normal',
       ),
     ),

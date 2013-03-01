@@ -13,9 +13,8 @@ class ViewsBootstrapCarouselPluginRows extends views_plugin_row {
    */
   public function option_definition() {
     $options = parent::option_definition();
-    $options['title'] = array('default' => '');
     $options['image'] = array('default' => '');
-    $options['link'] = array('default' => '');
+    $options['title'] = array('default' => '');
     $options['description'] = array('description' => '');
     return $options;
   }
@@ -37,13 +36,6 @@ class ViewsBootstrapCarouselPluginRows extends views_plugin_row {
       }
     }
 
-    $form['title'] = array(
-      '#type' => 'select',
-      '#title' => t('Title'),
-      '#options' => $fields,
-      '#default_value' => $this->options['title'],
-    );
-
     $form['image'] = array(
       '#type' => 'select',
       '#title' => t('Image'),
@@ -51,11 +43,11 @@ class ViewsBootstrapCarouselPluginRows extends views_plugin_row {
       '#default_value' => $this->options['image'],
     );
 
-    $form['link'] = array(
+    $form['title'] = array(
       '#type' => 'select',
-      '#title' => t('Link'),
+      '#title' => t('Title'),
       '#options' => $fields,
-      '#default_value' => $this->options['link'],
+      '#default_value' => $this->options['title'],
     );
 
     $form['description'] = array(
