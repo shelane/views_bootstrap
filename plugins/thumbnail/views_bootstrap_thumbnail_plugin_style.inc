@@ -26,10 +26,16 @@ class ViewsBootstrapThumbnailPluginStyle extends views_plugin_style {
 
     $form['column_type'] = array(
       '#type' => 'select',
-      '#title' => t('Column type'),
-      '#options' => drupal_map_assoc(range(1, 12)),
+      '#title' => t('Number of columns'),
+      '#options' => array(
+        12 => 1,
+        6 => 2,
+        4 => 3,
+        3 => 4,
+        2 => 6,
+        1 => 12,
+      ),
       '#default_value' => $this->options['column_type'],
-      '#description' => t('The default Bootstrap grid system utilizes 12 columns'),
     );
   }
 }
