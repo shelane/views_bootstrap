@@ -4,7 +4,18 @@
  * Implementation of template preprocess for the view.
  */
 function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
-  //--
+  drupal_add_js(array(
+    'viewsBootstrap' => array(
+      'carousel' => array(
+        $vars['id'] => array(
+          'id' => $vars['id'],
+          'name' => $vars['view']->name,
+        ),
+      ),
+    ),
+  ), 'setting');
+
+  drupal_add_js(drupal_get_path('module', 'views_bootstrap') . '/js/views-bootstrap-carousel.js');
 }
 
 /**
