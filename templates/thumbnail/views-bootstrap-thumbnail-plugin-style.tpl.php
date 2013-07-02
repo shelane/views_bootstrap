@@ -11,7 +11,7 @@
  */
 ?>
 
-<ul id="views-bootstrap-thumbnail-<?php print $id ?>" class="<?php print $classes ?>">
+<ul id="views-bootstrap-thumbnail-<?php print $id ?>" class="thumbnails <?php print $classes ?>">
   <?php foreach ($rows as $key => $row): ?>
     <li class="span<?php print $column_type ?>">
       <div class="thumbnail">
