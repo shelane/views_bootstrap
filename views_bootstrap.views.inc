@@ -40,6 +40,20 @@ function views_bootstrap_views_plugins() {
         'uses options' => TRUE,
         'type' => 'normal',
       ),
+      'views_bootstrap_grid_plugin_style' => array(
+        'title' => t('Bootstrap Grid'),
+        'help' => t('Bootstrap Grid Style'),
+        'path' => $module_path . '/plugins/grid',
+        'handler' => 'ViewsBootstrapGridPluginStyle',
+        'parent' => 'default', // Maybe 'list'?
+        'theme' => 'views_bootstrap_grid_plugin_style',
+        'theme path' => $module_path . '/templates/grid',
+        'theme file' => 'theme.inc',
+        'uses row plugin' => TRUE,
+        'uses grouping' => TRUE,
+        'uses options' => TRUE,
+        'type' => 'normal',
+      ),
     ),
     'row' => array(
       'views_bootstrap_carousel_plugin_rows' => array(
