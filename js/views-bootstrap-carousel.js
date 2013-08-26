@@ -1,8 +1,15 @@
 (function ($) {
   Drupal.behaviors.viewsBootstrapCarousel = {
     attach: function(context, settings) {
-      $.each(settings.viewsBootstrap.carousel, function(id, carousel) {
-        $('#views-bootstrap-carousel-' + carousel.id, context).carousel();
+      $(function () {
+        $.each(settings.viewsBootstrap.carousel, function(id, carousel) {
+          try {
+            $('#views-bootstrap-carousel-' + carousel.id, context).carousel();
+          }
+          catch(err) {
+            console.log(err);
+          }
+        });
       });
     }
   };
