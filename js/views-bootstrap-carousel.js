@@ -4,7 +4,7 @@
       $(function () {
         $.each(settings.viewsBootstrap.carousel, function(id, carousel) {
           try {
-            $('#views-bootstrap-carousel-' + carousel.id, context).carousel();
+            $('#views-bootstrap-carousel-' + carousel.id, context).carousel(carousel.attributes);
           }
           catch(err) {
             console.log(err);

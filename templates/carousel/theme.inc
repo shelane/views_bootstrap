@@ -10,6 +10,10 @@ function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
         $vars['id'] => array(
           'id' => $vars['id'],
           'name' => $vars['view']->name,
+          'attributes' => array(
+            'interval' => $vars['options']['interval'] ? (int)$vars['options']['interval'] : FALSE,
+            'pause' => $vars['options']['pause'] ? 'hover' : FALSE,
+          ),
         ),
       ),
     ),
@@ -21,12 +25,6 @@ function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
 
   $vars['navigation'] = (bool)$vars['options']['navigation'];
   $vars['indicators'] = (bool)$vars['options']['indicators'];
-
-  // Add attributes.
-  $vars['attributes_array']['data-interval'] = $vars['options']['interval'] ? $vars['options']['interval'] : FALSE;
-  $vars['attributes_array']['data-pause'] = $vars['options']['pause'] ? 'hover' : FALSE;
-
-  $vars['attributes_array']['data-pause'] = FALSE;
 }
 
 /**
