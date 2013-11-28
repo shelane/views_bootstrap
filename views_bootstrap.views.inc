@@ -82,6 +82,20 @@ function views_bootstrap_views_plugins() {
         'uses options' => TRUE,
         'type' => 'normal',
       ),
+      'views_bootstrap_media_plugin_style' => array(
+        'title' => t('Bootstrap Media Object'),
+        'help' => t('Bootstrap Media Object Style'),
+        'path' => $module_path . '/plugins/media',
+        'handler' => 'ViewsBootstrapMediaPluginStyle',
+        'parent' => 'default',
+        'theme' => 'views_bootstrap_media_plugin_style',
+        'theme path' => $module_path . '/templates/media',
+        'theme file' => 'theme.inc',
+        'uses row plugin' => TRUE,
+        'uses grouping' => TRUE,
+        'uses options' => TRUE,
+        'type' => 'normal',
+      ),
     ),
     'row' => array(
       'views_bootstrap_carousel_plugin_rows' => array(
