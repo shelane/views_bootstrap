@@ -1,5 +1,4 @@
 name = Views Bootstrap
-core = 7.x
 package = Views
 description = Bootstrap Components
 
