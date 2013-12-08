@@ -14,9 +14,9 @@ function template_preprocess_views_bootstrap_media_plugin_style(&$vars) {
 
   foreach ($view->result as $field) {
     $vars['items'][] = array(
-      'image_field' => isset($view->field[$image_field]) ? $view->field[$image_field]->theme($field) : NULL,
-      'heading_field' => isset($view->field[$heading_field]) ? $view->field[$heading_field]->theme($field) : NULL,
-      'body_field' => isset($view->field[$body_field]) ? $view->field[$body_field]->theme($field) : NULL,
+      'image_field' => isset($view->field[$image_field]) ? $view->field[$image_field]->advanced_render($field) : NULL,
+      'heading_field' => isset($view->field[$heading_field]) ? $view->field[$heading_field]->advanced_render($field) : NULL,
+      'body_field' => isset($view->field[$body_field]) ? $view->field[$body_field]->advanced_render($field) : NULL,
     );
   }
 }
