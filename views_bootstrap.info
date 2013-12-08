@@ -14,3 +14,5 @@ files[] = plugins/grid/views_bootstrap_grid_plugin_style.inc
 files[] = plugins/accordion/views_bootstrap_accordion_plugin_style.inc
 
 files[] = plugins/tab/views_bootstrap_tab_plugin_style.inc
+
+files[] = plugins/media/views_bootstrap_media_plugin_style.inc
