@@ -96,6 +96,21 @@ function views_bootstrap_views_plugins() {
         'uses options' => TRUE,
         'type' => 'normal',
       ),
+      'views_bootstrap_table_plugin_style' => array(
+        'title' => t('Bootstrap Table'),
+        'help' => t('Displays rows in Bootstrap Table Style'),
+        'path' => $module_path . '/plugins/table',
+        'handler' => 'ViewsBootstrapTablePluginStyle',
+        'parent' => 'table',
+        'theme' => 'views_bootstrap_table_plugin_style',
+        'theme path' => $module_path . '/templates/table',
+        'theme file' => 'theme.inc',
+        'uses row plugin' => FALSE,
+        'uses row class' => TRUE,
+        'uses fields' => TRUE,
+        'uses options' => TRUE,
+        'type' => 'normal',
+      ),
     ),
     'row' => array(
       'views_bootstrap_carousel_plugin_rows' => array(
