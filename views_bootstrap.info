@@ -8,6 +8,7 @@ files[] = plugins/carousel/views_bootstrap_carousel_plugin_style.inc
 files[] = plugins/carousel/views_bootstrap_carousel_plugin_rows.inc
 
 files[] = plugins/thumbnail/views_bootstrap_thumbnail_plugin_style.inc
+files[] = plugins/thumbnail/views_bootstrap_thumbnail_plugin_rows.inc
 
 files[] = plugins/grid/views_bootstrap_grid_plugin_style.inc
 

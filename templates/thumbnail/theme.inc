@@ -14,3 +14,30 @@ function template_preprocess_views_bootstrap_thumbnail_plugin_style(&$vars) {
   $vars['items'] = _views_bootstrap_split_rows($vars, $columns, $horizontal);
   $vars['column_type'] = 12 / $columns;
 }
+
+/**
+ * Implementation of template preprocess for the view fields.
+ */
+function template_preprocess_views_bootstrap_thumbnail_plugin_rows(&$vars) {
+  $view = &$vars['view'];
+
+  foreach ($vars['options'] as $id => $field) {
+    switch ($id) {
+      case 'image':
+      case 'title':
+        if (isset($view->field[$field])) {
+          $vars[$id] = $view->field[$field]->advanced_render($vars['row']);
+        }
+        break;
+
+      case 'content':
+        $vars[$id] = array();
+        foreach (array_filter($field) as $content_field) {
+          if (isset($view->field[$content_field])) {
+            $vars[$id][$content_field] = $view->field[$content_field]->advanced_render($vars['row']);
+          }
+        }
+        break;
+    }
+  }
+}
