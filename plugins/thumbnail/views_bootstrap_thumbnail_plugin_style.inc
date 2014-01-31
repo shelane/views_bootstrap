@@ -14,7 +14,7 @@ class ViewsBootstrapThumbnailPluginStyle extends views_plugin_style {
   public function option_definition() {
     $options = parent::option_definition();
     $options['alignment'] = array('default' => 'horizontal');
-    $options['column_type'] = array('default' => 4);
+    $options['columns'] = array('default' => 4);
     return $options;
   }
 
@@ -43,7 +43,7 @@ class ViewsBootstrapThumbnailPluginStyle extends views_plugin_style {
       '#title' => t('Number of columns'),
       '#options' => array_combine($options, $options),
       '#required' => TRUE,
-      '#default_value' => $this->options['column_type'],
+      '#default_value' => $this->options['columns'],
     );
   }
 }
