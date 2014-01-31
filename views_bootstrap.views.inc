@@ -125,6 +125,18 @@ function views_bootstrap_views_plugins() {
         'uses options' => TRUE,
         'type' => 'normal',
       ),
+      'views_bootstrap_thumbnail_plugin_rows' => array(
+        'title' => t('Bootstrap Thumbnail'),
+        'help' => t('Choose the fields to display in Bootstrap Thumbnail Style.'),
+        'path' => $module_path . '/plugins/thumbnail',
+        'handler' => 'ViewsBootstrapThumbnailPluginRows',
+        'theme' => 'views_bootstrap_thumbnail_plugin_rows',
+        'theme path' => $module_path . '/templates/thumbnail',
+        'theme file' => 'theme.inc',
+        'uses fields' => TRUE,
+        'uses options' => TRUE,
+        'type' => 'normal',
+      ),
     ),
   );
 }
