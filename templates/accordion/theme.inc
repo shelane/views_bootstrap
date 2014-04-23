@@ -10,8 +10,7 @@ function template_preprocess_views_bootstrap_accordion_plugin_style(&$vars) {
   // Get titles.
   if (isset($view->field[$title_field])) {
     foreach ($vars['view']->result as $key => $field) {
-      $view->field[$title_field]->advanced_render($field);
-      $vars['titles'][$key] = $view->field[$title_field]->last_render_text;
+      $vars['titles'][$key] = $view->style_plugin->get_field($key, $title_field);
     }
   }
 }
