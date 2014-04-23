@@ -26,7 +26,7 @@ function template_preprocess_views_bootstrap_thumbnail_plugin_rows(&$vars) {
       case 'image':
       case 'title':
         if (isset($view->field[$field])) {
-          $vars[$id] = $view->field[$field]->advanced_render($vars['row']);
+          $vars[$id] = $view->style_plugin->get_field($view->row_index, $field);
         }
         break;
 
@@ -34,7 +34,7 @@ function template_preprocess_views_bootstrap_thumbnail_plugin_rows(&$vars) {
         $vars[$id] = array();
         foreach (array_filter($field) as $content_field) {
           if (isset($view->field[$content_field])) {
-            $vars[$id][$content_field] = $view->field[$content_field]->advanced_render($vars['row']);
+            $vars[$id][$content_field] = $view->style_plugin->get_field($view->row_index, $content_field);
           }
         }
         break;
