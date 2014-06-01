@@ -1,6 +1,7 @@
 name = Views Bootstrap
 package = Views
 description = Bootstrap Components
+core = 7.x
 
 dependencies[] = views
 
