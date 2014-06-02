@@ -9,6 +9,16 @@
  */
 class ViewsBootstrapListGroupPluginStyle extends views_plugin_style {
   /**
+   * Definition.
+   */
+  public function option_definition() {
+    $options = parent::option_definition();
+    $options['link_field'] = array('default' => NULL);
+
+    return $options;
+  }
+
+  /**
    * Form.
    */
   function options_form(&$form, &$form_state) {
