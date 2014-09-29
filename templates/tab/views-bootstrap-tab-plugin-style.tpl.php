@@ -1,3 +1,7 @@
+<?php if (!empty($title)): ?>
+  <h3><?php print $title ?></h3>
+<?php endif ?>
+
 <div id="views-bootstrap-tab-<?php print $id ?>" class="<?php print $classes ?>">
   <ul class="nav nav-<?php print $tab_type?>">
     <?php foreach ($tabs as $key => $tab): ?>

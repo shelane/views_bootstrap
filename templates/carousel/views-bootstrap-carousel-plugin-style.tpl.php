@@ -1,3 +1,7 @@
+<?php if (!empty($title)): ?>
+  <h3><?php print $title ?></h3>
+<?php endif ?>
+
 <div id="views-bootstrap-carousel-<?php print $id ?>" class="<?php print $classes ?>" <?php print $attributes ?>>
   <?php if ($indicators): ?>
     <!-- Carousel indicators -->
