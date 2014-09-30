@@ -50,7 +50,7 @@ function views_bootstrap_views_plugins() {
         'theme path' => $module_path . '/templates/grid',
         'theme file' => 'theme.inc',
         'uses row plugin' => TRUE,
-        'uses grouping' => FALSE,
+        'uses grouping' => TRUE,
         'uses options' => TRUE,
         'type' => 'normal',
       ),
