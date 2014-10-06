@@ -25,6 +25,7 @@ function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
 
   $vars['navigation'] = (bool)$vars['options']['navigation'];
   $vars['indicators'] = (bool)$vars['options']['indicators'];
+  $vars['first_key'] = array_keys($vars['rows'])[0];
 }
 
 /**
