@@ -7,6 +7,10 @@
  */
 ?>
 
+<?php if (!empty($title)): ?>
+  <h3><?php print $title ?></h3>
+<?php endif ?>
+
 <<?php print $linked_items ? 'div' : 'ul'?> id="views-bootstrap-list-group-<?php print $id ?>" class="list-group <?php print $classes ?>">
   <?php foreach ($rows as $key => $row): ?>
     <<?php print $linked_items ? "a href='{$link_fields[$key]}'" : 'li'?> class="list-group-item">
