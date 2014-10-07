@@ -17,5 +17,6 @@ function template_preprocess_views_bootstrap_tab_plugin_style(&$vars) {
     }
   }
 
-  $vars['first_key'] = array_keys($vars['rows'])[0];
+  $keys = array_keys($vars['rows']);
+  $vars['first_key'] = reset($keys);
 }
