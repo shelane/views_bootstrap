@@ -16,6 +16,7 @@ class ViewsBootstrapCarouselPluginRows extends views_plugin_row {
     $options['image'] = array('default' => '');
     $options['title'] = array('default' => '');
     $options['description'] = array('description' => '');
+    $options['items_per_slide'] = array('default' => 1);
     return $options;
   }
 

@@ -21,6 +21,22 @@ function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
 
   drupal_add_js(drupal_get_path('module', 'views_bootstrap') . '/js/views-bootstrap-carousel.js');
 
+  if ($vars['options']['items_per_slide'] > 1) {
+    $rows = array();
+
+    foreach ($vars['rows'] as $key => $row) {
+      $mod = $key % (int) $vars['options']['items_per_slide'];
+      if ($mod == 0) {
+        $rows[] = $row;
+      }
+      else {
+        $rows[(count($rows)-1)] .= $row;
+      }
+    }
+
+    $vars['rows'] = $rows;
+  }
+
   $vars['classes_array'][] = 'carousel slide';
   $vars['attributes_array']['data-ride'] = 'carousel';
 
