@@ -16,6 +16,7 @@ class ViewsBootstrapCarouselPluginStyle extends views_plugin_style {
     $options['interval'] = array('default' => 5000);
     $options['navigation'] = array('default' => TRUE);
     $options['indicators'] = array('default' => TRUE);
+    $options['wrap'] = array('default' => TRUE);
     $options['pause'] = array('default' => FALSE);
     $options['items_per_slide'] = array('default' => 1);
     return $options;
@@ -45,6 +46,13 @@ class ViewsBootstrapCarouselPluginStyle extends views_plugin_style {
       '#type' => 'checkbox',
       '#title' => t('Show indicators'),
       '#default_value' => $this->options['indicators'],
+    );
+
+    $form['wrap'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Wrap'),
+      '#description' => t('Restarts the carousel after the last slide, rather than having a hard stop.'),
+      '#default_value' => $this->options['wrap'],
     );
 
     $form['pause'] = array(

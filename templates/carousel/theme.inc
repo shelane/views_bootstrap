@@ -13,6 +13,7 @@ function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
           'attributes' => array(
             'interval' => $vars['options']['interval'] ? (int)$vars['options']['interval'] : FALSE,
             'pause' => $vars['options']['pause'] ? 'hover' : FALSE,
+            'wrap' => (bool)$vars['options']['wrap'] ? TRUE : FALSE,
           ),
         ),
       ),
@@ -40,8 +41,11 @@ function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
   $vars['classes_array'][] = 'carousel slide';
   $vars['attributes_array']['data-ride'] = 'carousel';
 
+  $vars['attributes_array']['data-wrap'] = (bool)$vars['options']['wrap'] ? 'true' : 'false';
+
   $vars['navigation'] = (bool)$vars['options']['navigation'];
   $vars['indicators'] = (bool)$vars['options']['indicators'];
+
   $keys = array_keys($vars['rows']);
   $vars['first_key'] = reset($keys);
 }
