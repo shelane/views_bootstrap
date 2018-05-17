@@ -34,7 +34,6 @@ class ViewsBootstrapTab extends StylePluginBase {
    */
   protected $usesOptions = TRUE;
   protected $usesRowPlugin = TRUE;
-  protected $usesRowPlugin = TRUE;
 
   /**
    * Definition.
