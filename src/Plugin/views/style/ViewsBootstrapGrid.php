@@ -167,26 +167,11 @@ class ViewsBootstrapGrid extends StylePluginBase {
       '#default_value' => $this->options['alignment'],
     ];
 
-    $form['columns'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Number of columns per row'),
-      '#required' => TRUE,
-      '#default_value' => isset($this->options['columns']) ? $this->options['columns'] : NULL,
-      '#options' => [
-        1 => 1,
-        2 => 2,
-        3 => 3,
-        4 => 4,
-        6 => 6,
-        12 => 12,
-        999 => $this->t('All'),
-      ],
-    ];
-
     foreach (['xs', 'sm', 'md', 'lg'] as $size) {
       $form["col_${size}"] = [
         '#type' => 'select',
         '#title' => $this->t("Number of columns (col-${size})"),
+        '#description' => $this->t("This adds col-${size} to the div."),
         '#required' => TRUE,
         '#default_value' => isset($this->options["col_${size}"]) ? $this->options["col_${size}"] : NULL,
         '#options' => [
