@@ -33,12 +33,16 @@ class ViewsBootstrapCarousel extends StylePluginBase {
   protected function defineOptions() {
     $options = parent::defineOptions();
 
+    // General carousel settings.
     $options['interval'] = ['default' => 5000];
+    $options['keyboard'] = ['default' => TRUE];
+    $options['ride'] = ['default' => TRUE];
     $options['navigation'] = ['default' => TRUE];
     $options['indicators'] = ['default' => TRUE];
     $options['pause'] = ['default' => TRUE];
     $options['wrap'] = ['default' => TRUE];
 
+    // Fields to use in carousel.
     $options['image'] = ['default' => ''];
     $options['title'] = ['default' => ''];
     $options['description'] = ['default' => ''];
@@ -60,6 +64,20 @@ class ViewsBootstrapCarousel extends StylePluginBase {
       '#title' => $this->t('Interval'),
       '#description' => t('The amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle.'),
       '#default_value' => $this->options['interval'],
+    ];
+
+    $form['keyboard'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Keyboard'),
+      '#description' => $this->t('Whether the carousel should react to keyboard events.'),
+      '#default_value' => $this->options['keyboard'],
+    ];
+
+    $form['ride'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Ride'),
+      '#description' => $this->t('Autoplays the carousel after the user manually cycles the first item. If "carousel", autoplays the carousel on load.'),
+      '#default_value' => $this->options['ride'],
     ];
 
     $form['navigation'] = [
