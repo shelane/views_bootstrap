@@ -66,6 +66,9 @@ function template_preprocess_views_bootstrap_carousel(array &$vars) {
   $vars['indicators'] = $view->style_plugin->options['indicators'];
   $vars['pause'] = $view->style_plugin->options['pause'] ? 'hover' : FALSE;
   $vars['wrap'] = $view->style_plugin->options['wrap'];
+  $vars['effect'] = $view->style_plugin->options['effect'];
+  $vars['use_caption'] = $view->style_plugin->options['use_caption'];
+  $vars['ride'] = $view->style_plugin->options['ride'];
 
   // Carousel rows.
   $image = $view->style_plugin->options['image'];

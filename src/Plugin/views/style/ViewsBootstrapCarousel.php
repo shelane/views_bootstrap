@@ -41,6 +41,8 @@ class ViewsBootstrapCarousel extends StylePluginBase {
     $options['indicators'] = ['default' => TRUE];
     $options['pause'] = ['default' => TRUE];
     $options['wrap'] = ['default' => TRUE];
+    $options['effect'] = ['default' => 'slide'];
+    $options['use_caption'] = ['default' => TRUE];
 
     // Fields to use in carousel.
     $options['image'] = ['default' => ''];
@@ -75,8 +77,8 @@ class ViewsBootstrapCarousel extends StylePluginBase {
 
     $form['ride'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Ride'),
-      '#description' => $this->t('Autoplays the carousel after the user manually cycles the first item. If "carousel", autoplays the carousel on load.'),
+      '#title' => $this->t('Ride (Autoplay)'),
+      '#description' => $this->t('Autoplays the carousel on load.'),
       '#default_value' => $this->options['ride'],
     ];
 
@@ -99,11 +101,30 @@ class ViewsBootstrapCarousel extends StylePluginBase {
       '#default_value' => $this->options['pause'],
     ];
 
+    $form['use_caption'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Add captions to your slides for add title and description over the image.'),
+      '#description' => 'https://getbootstrap.com/docs/4.0/components/carousel/#with-captions',
+      '#default_value' => $this->options['use_caption'],
+    ];
+
     $form['wrap'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Wrap'),
       '#description' => t('The carousel should cycle continuously or have hard stops.'),
       '#default_value' => $this->options['wrap'],
+    ];
+
+    $form['effect'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Effect'),
+      '#description' => t('Transition effect (since bootstrap 4.1)') . '(https://getbootstrap.com/docs/4.1/components/carousel/#crossfade)' ,
+      '#options' => [
+        '' => t('No effect'),
+        'slide' => t('Slide'),
+        'slide carousel-fade' => t('Fade'),
+      ],
+      '#default_value' => $this->options['effect'],
     ];
 
     $form['image'] = [
