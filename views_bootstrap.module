@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Custom functions for Views Bootstrap.
@@ -34,7 +33,7 @@ function views_bootstrap_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
- * {@inheritdoc}
+ * Implements hook_theme().
  */
 function views_bootstrap_theme() {
   return ViewsBootstrap::getThemeHooks();
