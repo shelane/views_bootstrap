@@ -32,12 +32,12 @@ function template_preprocess_views_bootstrap_accordion(array &$vars) {
   }
   else {
     // @TODO: This would be better as valdiation errors on the style plugin options form.
-    drupal_set_message(t('@style style will not display without the "@field" setting.',
+    \Drupal::messenger()->addWarning(t('@style style will not display without the "@field" setting.',
       [
         '@style' => $view->style_plugin->definition['title'],
         '@field' => 'Panel title',
       ]
-    ), 'warning');
+    ));
   }
   // @TODO: Make sure that $vars['rows'] is rendered array.
   // @SEE: Have a look template_preprocess_views_view_unformatted()
@@ -230,12 +230,12 @@ function template_preprocess_views_bootstrap_tab(array &$vars) {
   }
   else {
     // @TODO: This would be better as valdiation errors on the style plugin options form.
-    drupal_set_message(t('@style style will not display without the "@field" setting.',
+    \Drupal::messenger()->addWarning(t('@style style will not display without the "@field" setting.',
       [
         '@style' => $view->style_plugin->definition['title'],
         '@field' => 'Tab title',
       ]
-    ), 'warning');
+    ));
   }
 }
 
