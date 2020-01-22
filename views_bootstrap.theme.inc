@@ -23,6 +23,7 @@ function template_preprocess_views_bootstrap_accordion(array &$vars) {
   $vars['id'] = ViewsBootstrap::getUniqueId($view);
   $panel_title_field = $view->style_plugin->options['panel_title_field'];
   $vars['attributes']['class'][] = 'panel-group';
+  $vars['options'] = $view->style_plugin->options;
   if ($panel_title_field) {
     foreach ($vars['rows'] as $id => $row) {
       $vars['rows'][$id] = [];
