@@ -1,6 +1,6 @@
-name: Views Bootstrap
+name: Views Bootstrap 4
 type: module
-description: Views Bootstrap v4
+description: Allows for different styles to be used in views to work with Bootstrap 4 components.
 package: Views
 core: 8.x
 dependencies:
