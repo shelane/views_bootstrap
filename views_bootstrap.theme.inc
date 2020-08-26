@@ -187,7 +187,7 @@ function template_preprocess_views_bootstrap_tab(array &$vars) {
   if ($tab_field) {
     if (isset($view->field[$tab_field])) {
       foreach (array_keys($vars['rows']) as $key) {
-        $vars['tabs'][$key] = $view->style_plugin->getFieldValue($key, $tab_field);
+        $vars['tabs'][$key] = $view->style_plugin->getField($key, $tab_field);
       }
     }
     foreach ($vars['rows'] as $id => $row) {
