@@ -21,10 +21,12 @@ use Drupal\Core\Template\Attribute;
 function template_preprocess_views_bootstrap_accordion(array &$vars) {
   $view = $vars['view'];
   $vars['id'] = ViewsBootstrap::getUniqueId($view);
+  $group_title_field = isset($view->style_plugin->options['grouping'][0]) ? $view->style_plugin->options['grouping'][0]['field'] : "";
   $panel_title_field = $view->style_plugin->options['panel_title_field'];
   $vars['attributes']['class'][] = 'panel-group';
   if ($panel_title_field) {
     foreach ($vars['rows'] as $id => $row) {
+      $vars['group_title'] = $group_title_field ? $view->style_plugin->getField($id, $group_title_field): "";
       $vars['rows'][$id] = [];
       $vars['rows'][$id]['content'] = $row;
       $vars['rows'][$id]['title'] = $view->style_plugin->getField($id, $panel_title_field);
