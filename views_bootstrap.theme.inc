@@ -167,6 +167,44 @@ function template_preprocess_views_bootstrap_media_object(array &$vars) {
 }
 
 /**
+ * Prepares variables for views panel templates.
+ *
+ * Default template: views-bootstrap-panel.html.twig.
+ *
+ * @param array $vars
+ *   An associative array containing:
+ *   - view: A ViewExecutable object.
+ *   - rows: The raw row data.
+ */
+function template_preprocess_views_bootstrap_panel(array &$vars) {
+  $view = $vars['view'];
+  $vars['id'] = ViewsBootstrap::getUniqueId($view);
+  $group_title_field = isset($view->style_plugin->options['grouping'][0]) ? $view->style_plugin->options['grouping'][0]['field'] : "";
+  $panel_title_field = $view->style_plugin->options['panel_title_field'];
+  $vars['attributes']['class'][] = 'panel-group';
+  if ($panel_title_field) {
+    foreach ($vars['rows'] as $id => $row) {
+      $vars['group_title'] = $group_title_field ? $view->style_plugin->getField($id, $group_title_field): "";
+      $vars['rows'][$id] = [];
+      $vars['rows'][$id]['content'] = $row;
+      $vars['rows'][$id]['title'] = $view->style_plugin->getField($id, $panel_title_field);
+    }
+  }
+  else {
+    // @TODO: This would be better as validation errors on the style plugin options form.
+    \Drupal::messenger()->addWarning(t('@style style will not display without the "@field" setting.',
+      [
+        '@style' => $view->style_plugin->definition['title'],
+        '@field' => 'Panel title',
+      ]
+    ));
+  }
+  // @TODO: Make sure that $vars['rows'] is rendered array.
+  // @SEE: Have a look template_preprocess_views_view_unformatted()
+  // and views-view-unformatted.html.twig
+}
+
+/**
  * Prepares variables for views tab templates.
  *
  * Default template: views-bootstrap-tab.html.twig.
@@ -201,7 +239,7 @@ function template_preprocess_views_bootstrap_tab(array &$vars) {
   }
   else {
     // @TODO: This would be better as validation errors on the style plugin options form.
-    \Drupal::messenger()->addWarning(
+    Drupal::messenger()->addWarning(
       t('@style style will not display without the "@field" setting.', [
         '@style' => $view->style_plugin->definition['title'],
         '@field' => 'Tab title',

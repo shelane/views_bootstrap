@@ -53,6 +53,13 @@ class ViewsBootstrap {
       ],
       'file' => 'views_bootstrap.theme.inc',
     ];
+    $hooks['views_bootstrap_panel'] = [
+      'preprocess functions' => [
+        'template_preprocess_views_bootstrap_panel',
+        'template_preprocess_views_view_panel',
+      ],
+      'file' => 'views_bootstrap.theme.inc',
+    ];
     $hooks['views_bootstrap_tab'] = [
       'preprocess functions' => [
         'template_preprocess_views_bootstrap_tab',
