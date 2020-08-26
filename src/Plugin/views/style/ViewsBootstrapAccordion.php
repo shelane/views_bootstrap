@@ -4,7 +4,6 @@ namespace Drupal\views_bootstrap\Plugin\views\style;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\style\StylePluginBase;
-use Drupal\views_bootstrap\ViewsBootstrap;
 
 /**
  * Style plugin to render each item as a row in a Bootstrap Accordion.

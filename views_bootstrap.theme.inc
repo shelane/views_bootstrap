@@ -26,7 +26,7 @@ function template_preprocess_views_bootstrap_accordion(array &$vars) {
   $vars['attributes']['class'][] = 'panel-group';
   if ($panel_title_field) {
     foreach ($vars['rows'] as $id => $row) {
-      $vars['group_title'] = $group_title_field ? $view->style_plugin->getField($id, $group_title_field): "";
+      $vars['group_title'] = $group_title_field ? $view->style_plugin->getField($id, $group_title_field) : "";
       $vars['rows'][$id] = [];
       $vars['rows'][$id]['content'] = $row;
       $vars['rows'][$id]['title'] = $view->style_plugin->getField($id, $panel_title_field);
@@ -106,7 +106,6 @@ function template_preprocess_views_bootstrap_grid(array &$vars) {
   $vars['attributes']['class'][] = 'grid';
   $options = $view->style_plugin->options;
   $options['automatic_width'] = ['default' => TRUE];
-  $horizontal = ($options['alignment'] === 'horizontal');
 
   foreach (['xs', 'sm', 'md', 'lg'] as $size) {
     $vars["col_" . $size] = $options["col_" . $size];
@@ -192,7 +191,7 @@ function template_preprocess_views_bootstrap_tab(array &$vars) {
       }
     }
     foreach ($vars['rows'] as $id => $row) {
-      $vars['rows'][$id] = array();
+      $vars['rows'][$id] = [];
       $vars['rows'][$id]['content'] = $row;
       $vars['rows'][$id]['attributes'] = new Attribute();
       if ($row_class = $view->style_plugin->getRowClass($id)) {
@@ -228,4 +227,3 @@ function template_preprocess_views_bootstrap_table(array &$vars) {
     $vars['attributes']['class'][] = 'table-' . $style;
   }
 }
-
