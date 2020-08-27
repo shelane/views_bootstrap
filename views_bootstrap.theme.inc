@@ -184,7 +184,7 @@ function template_preprocess_views_bootstrap_panel(array &$vars) {
   $vars['attributes']['class'][] = 'panel-group';
   if ($panel_title_field) {
     foreach ($vars['rows'] as $id => $row) {
-      $vars['group_title'] = $group_title_field ? $view->style_plugin->getField($id, $group_title_field): "";
+      $vars['group_title'] = $group_title_field ? $view->style_plugin->getField($id, $group_title_field) : "";
       $vars['rows'][$id] = [];
       $vars['rows'][$id]['content'] = $row;
       $vars['rows'][$id]['title'] = $view->style_plugin->getField($id, $panel_title_field);
@@ -220,7 +220,8 @@ function template_preprocess_views_bootstrap_tab(array &$vars) {
   $group_title_field = isset($view->style_plugin->options['grouping'][0]) ? $view->style_plugin->options['grouping'][0]['field'] : "";
   $tab_field = $view->style_plugin->options['tab_field'];
   $vars['tab_type'] = $view->style_plugin->options['tab_type'];
-  $vars['justified'] = $view->style_plugin->options['justified'];
+  $vars['tab_position'] = $view->style_plugin->options['tab_position'];
+  $vars['tab_fade'] = $view->style_plugin->options['tab_fade'] ? 'fade' : '';
 
   // Get tabs.
   if ($tab_field) {
@@ -230,7 +231,7 @@ function template_preprocess_views_bootstrap_tab(array &$vars) {
       }
     }
     foreach ($vars['rows'] as $id => $row) {
-      $vars['group_title'] = $group_title_field ? $view->style_plugin->getField($id, $group_title_field): "";
+      $vars['group_title'] = $group_title_field ? $view->style_plugin->getField($id, $group_title_field) : "";
       $vars['rows'][$id] = [];
       $vars['rows'][$id]['content'] = $row;
       $vars['rows'][$id]['attributes'] = new Attribute();

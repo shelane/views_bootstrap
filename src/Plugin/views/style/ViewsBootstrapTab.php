@@ -75,11 +75,26 @@ class ViewsBootstrapTab extends StylePluginBase {
       '#default_value' => $this->options['tab_type'],
     ];
 
-    $form['justified'] = [
+    $form['tab_position'] = [
+      '#type' => 'radios',
+      '#title' => $this->t('Position of tabs'),
+      '#options' => [
+        'basic' => $this->t('Tabs/pills on the top'),
+        'left' => $this->t('Tabs/pills on the left'),
+        'right' => $this->t('Tabs/pills on the right'),
+        'below' => $this->t('Tabs/pills on the bottom'),
+        'justified' => $this->t('Tabs/pills justified on the top'),
+        'stacked' => $this->t('Tabs/pills stacked'),
+      ],
+      '#required' => TRUE,
+      '#default_value' => $this->options['tab_position'] ?? 'basic',
+    ];
+
+    $form['tab_fade'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Justified'),
-      '#default_value' => $this->options['justified'],
-      '#description' => $this->t('Make tabs equal widths of their parent'),
+      '#title' => $this->t('Fade Effect'),
+      '#default_value' => $this->options['tab_fade'],
+      '#description' => $this->t('Add a fade in effect when tabs clicked'),
     ];
   }
 
