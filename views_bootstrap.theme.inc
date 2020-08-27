@@ -217,6 +217,7 @@ function template_preprocess_views_bootstrap_panel(array &$vars) {
 function template_preprocess_views_bootstrap_tab(array &$vars) {
   $vars['id'] = ViewsBootstrap::getUniqueId($vars['view']);
   $view = $vars['view'];
+  $group_title_field = isset($view->style_plugin->options['grouping'][0]) ? $view->style_plugin->options['grouping'][0]['field'] : "";
   $tab_field = $view->style_plugin->options['tab_field'];
   $vars['tab_type'] = $view->style_plugin->options['tab_type'];
   $vars['justified'] = $view->style_plugin->options['justified'];
@@ -229,6 +230,7 @@ function template_preprocess_views_bootstrap_tab(array &$vars) {
       }
     }
     foreach ($vars['rows'] as $id => $row) {
+      $vars['group_title'] = $group_title_field ? $view->style_plugin->getField($id, $group_title_field): "";
       $vars['rows'][$id] = [];
       $vars['rows'][$id]['content'] = $row;
       $vars['rows'][$id]['attributes'] = new Attribute();
