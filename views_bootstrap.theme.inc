@@ -227,3 +227,60 @@ function template_preprocess_views_bootstrap_table(array &$vars) {
     $vars['attributes']['class'][] = 'table-' . $style;
   }
 }
+
+/**
+ * Prepares variables for views dropdown templates.
+ *
+ * Adds 'dropdown' classes and some aria roles to the list structure.
+ *
+ * Default template: views-bootstrap-dropdown.html.twig.
+ *
+ * @param array $vars
+ *   An associative array containing:
+ *   - view: A ViewExecutable object.
+ *   - rows: The raw row data.
+ *
+ * @see template_preprocess_views_view_list()
+ */
+function template_preprocess_views_bootstrap_dropdown(array &$vars) {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $vars['view'];
+  $vars['id'] = ViewsBootstrap::getUniqueId($view);
+
+  /** @var  \Drupal\views\Plugin\views\style\StylePluginBase $handler */
+  $handler = $vars['view']->style_plugin;
+
+  // Fetch classes from handler options. Sanitize user input.
+  $wrapper_class = explode(' ', $handler->options['wrapper_class']);
+  $wrapper_class[] = 'dropdown';
+  $wrapper_class = array_map('\Drupal\Component\Utility\Html::cleanCssIdentifier', $wrapper_class);
+  $vars['attributes'] = new Attribute(['class' => $wrapper_class]);
+
+  $class = explode(' ', $handler->options['class']);
+  $class[] = "dropdown-menu";
+  $class = array_map('\Drupal\Component\Utility\Html::cleanCssIdentifier', $class);
+  $vars['list']['attributes'] = new Attribute(['class' => $class]);
+
+  $vars['button']['text'] = $handler->options['button_text'];
+  $button_class = explode(' ', $handler->options['button_class']);
+  $button_class[] = 'dropdown-toggle';
+  $button_class = array_map('\Drupal\Component\Utility\Html::cleanCssIdentifier', $button_class);
+  $vars['button']['attributes'] = new Attribute(['class' => $button_class]);
+
+  // Inject additional dropdown aria attributes into the individual rows to
+  // make them behave as menu items.
+  // The most common case should be one linked field, but there seems
+  // no reason why the whole rendered row can't be here if that's what you want.
+  foreach ($vars['rows'] as $id => $row) {
+    $vars['rows'][$id] = [];
+    $vars['rows'][$id]['content'] = $row;
+    // Using role=presentation here is supposed to diminish the screen readers
+    // treatment of list items as "List Items". Being a menu item is sufficient.
+    // tabindex -1 means that all these links will not waylay keyboard
+    // navigation (until the user deliberately opens that list).
+    $vars['rows'][$id]['attributes'] = new Attribute(['role' => 'menuitem presentation', 'tabindex' => -1]);
+    if ($row_class = $handler->getRowClass($id)) {
+      $vars['rows'][$id]['attributes']->addClass($row_class);
+    }
+  }
+}

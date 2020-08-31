@@ -67,6 +67,13 @@ class ViewsBootstrap {
       ],
       'file' => 'views_bootstrap.theme.inc',
     ];
+    $hooks['views_bootstrap_dropdown'] = [
+      'preprocess functions' => [
+        'template_preprocess_views_bootstrap_dropdown',
+        'template_preprocess_views_view_dropdown',
+      ],
+      'file' => 'views_bootstrap.theme.inc',
+    ];
 
     return $hooks;
   }
