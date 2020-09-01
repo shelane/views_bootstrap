@@ -81,6 +81,13 @@ class ViewsBootstrap {
       ],
       'file' => 'views_bootstrap.theme.inc',
     ];
+    $hooks['views_bootstrap_thumbnail'] = [
+      'preprocess functions' => [
+        'template_preprocess_views_bootstrap_grid',
+        'template_preprocess_views_view_grid',
+      ],
+      'file' => 'views_bootstrap.theme.inc',
+    ];
 
     return $hooks;
   }

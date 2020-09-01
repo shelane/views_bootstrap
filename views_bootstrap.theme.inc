@@ -192,7 +192,7 @@ function template_preprocess_views_bootstrap_panel(array &$vars) {
   }
   else {
     // @TODO: This would be better as validation errors on the style plugin options form.
-    \Drupal::messenger()->addWarning(t('@style style will not display without the "@field" setting.',
+    Drupal::messenger()->addWarning(t('@style style will not display without the "@field" setting.',
       [
         '@style' => $view->style_plugin->definition['title'],
         '@field' => 'Panel title',

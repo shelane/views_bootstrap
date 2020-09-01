@@ -21,6 +21,7 @@ function views_bootstrap_help($route_name, RouteMatchInterface $route_match) {
       $output .= '<p>' . t('<a href="http://moduledev.dev/admin/structure/views/add">Create a view</a> using one of the following styles:') . '</p>';
       $output .= '<ul>';
       $output .= '<li>' . t('<a href="http://getbootstrap.com/css/#grid-example-basic">Grid</a>') . '</li>';
+      $output .= '<li>' . t('<a href="https://getbootstrap.com/docs/3.4/components/#thumbnails">Thumbnails</a>') . '</li>';
       $output .= '<li>' . t('<a href="http://getbootstrap.com/css/#tables">Tables</a>') . '</li>';
       $output .= '<li>' . t('<a href="http://getbootstrap.com/components/#media">Media object</a>') . '</li>';
       $output .= '<li>' . t('<a href="http://getbootstrap.com/javascript/#collapse-example-accordion">Accordion</a>') . '</li>';
