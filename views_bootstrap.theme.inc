@@ -105,7 +105,7 @@ function template_preprocess_views_bootstrap_grid(array &$vars) {
   $vars['id'] = ViewsBootstrap::getUniqueId($view);
   $vars['attributes']['class'][] = 'grid';
   $options = $view->style_plugin->options;
-  $options['automatic_width'] = ['default' => TRUE];
+  $options['automatic_width'] = ['default' => FALSE];
 
   foreach (['xs', 'sm', 'md', 'lg'] as $size) {
     $vars["col_" . $size] = $options["col_" . $size];

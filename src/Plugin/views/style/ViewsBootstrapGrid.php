@@ -128,12 +128,12 @@ class ViewsBootstrapGrid extends StylePluginBase {
     $options = parent::defineOptions();
 
     $options['alignment'] = ['default' => 'horizontal'];
-    $options['columns'] = ['default' => '4'];
+    $options['columns'] = ['default' => '12'];
     $options['col_xs'] = ['default' => 'col-xs-12'];
-    $options['col_sm'] = ['default' => 'col-sm-12'];
-    $options['col_md'] = ['default' => 'col-md-12'];
-    $options['col_lg'] = ['default' => 'col-lg-12'];
-    $options['automatic_width'] = ['default' => TRUE];
+    $options['col_sm'] = ['default' => 'col-sm-6'];
+    $options['col_md'] = ['default' => 'col-md-4'];
+    $options['col_lg'] = ['default' => 'col-lg-3'];
+    $options['automatic_width'] = ['default' => FALSE];
     $options['col_class_custom'] = ['default' => ''];
     $options['col_class_default'] = ['default' => TRUE];
     $options['row_class_custom'] = ['default' => ''];
@@ -170,8 +170,8 @@ class ViewsBootstrapGrid extends StylePluginBase {
     foreach (['xs', 'sm', 'md', 'lg'] as $size) {
       $form["col_${size}"] = [
         '#type' => 'select',
-        '#title' => $this->t("Number of columns (col-${size})"),
-        '#description' => $this->t("This adds col-${size} to the div."),
+        '#title' => $this->t("Number of columns (col-@size)", ['@size' => $size]),
+        '#description' => $this->t("This adds col-@size to the div.", ['@size' => $size]),
         '#required' => TRUE,
         '#default_value' => isset($this->options["col_${size}"]) ? $this->options["col_${size}"] : NULL,
         '#options' => [
