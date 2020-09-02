@@ -24,18 +24,18 @@
 <div id="{{ id }}" {{ attributes.addClass(classes) }}>
   {% if options.alignment  == 'horizontal' %}
     {% for row in items %}
-      <div class="row">
+      <div class="row {{ options.row_class }}">
         {% for column in row.content %}
-          <div class="col {{ col_xs }} {{ col_sm }} {{ col_md }} {{ col_lg }} {{ options.row_class }}">
+          <div class="col {{ col_xs }} {{ col_sm }} {{ col_md }} {{ col_lg }}">
             {{ column.content }}
           </div>
         {% endfor %}
       </div>
     {% endfor %}
   {% else %}
-    <div class="row">
+    <div class="row {{ options.row_class }}">
       {% for column in items %}
-        <div class="col {{ col_xs }} {{ col_sm }} {{ col_md }} {{ col_lg }} {{ options.row_class }}">
+        <div class="col {{ col_xs }} {{ col_sm }} {{ col_md }} {{ col_lg }}">
           {% for row in column.content %}
             {{ row.content }}
           {% endfor %}
