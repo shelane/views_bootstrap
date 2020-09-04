@@ -21,11 +21,11 @@ use Drupal\views\Plugin\views\style\StylePluginBase;
  */
 class ViewsBootstrapCarousel extends StylePluginBase {
   /**
-   * Does the style plugin for itself support to add fields to it's output.
+   * Whether or not this style uses a row plugin.
    *
    * @var bool
    */
-  protected $usesFields = TRUE;
+  protected $usesRowPlugin = TRUE;
 
   /**
    * Definition.
@@ -88,26 +88,29 @@ class ViewsBootstrapCarousel extends StylePluginBase {
       '#default_value' => $this->options['wrap'],
     ];
 
-    $form['image'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Image'),
-      '#options' => $fields,
-      '#default_value' => $this->options['image'],
-    ];
+    if ($this->usesFields()) {
+      $form['image'] = [
+        '#type' => 'select',
+        '#title' => $this->t('Image'),
+        '#options' => $fields,
+        '#default_value' => $this->options['image'],
+      ];
 
-    $form['title'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Title'),
-      '#options' => $fields,
-      '#default_value' => $this->options['title'],
-    ];
+      $form['title'] = [
+        '#type' => 'select',
+        '#title' => $this->t('Title'),
+        '#options' => $fields,
+        '#default_value' => $this->options['title'],
+      ];
 
-    $form['description'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Description'),
-      '#options' => $fields,
-      '#default_value' => $this->options['description'],
-    ];
+      $form['description'] = [
+        '#type' => 'select',
+        '#title' => $this->t('Description'),
+        '#options' => $fields,
+        '#default_value' => $this->options['description'],
+      ];
+    }
+
   }
 
 }
