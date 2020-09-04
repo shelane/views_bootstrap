@@ -37,7 +37,7 @@
   <div class="carousel-inner" role="listbox">
     {% for row in rows %}
       {% set row_classes = ['item', loop.first ? 'active'] %}
-      <div class="{{ row_classes|join(' ') }}">
+      <div {{ row.attributes.addClass(row_classes) }}>
         {% if display == 'fields' %}
         {{ row.image }}
         {% if row.title or row.description %}

@@ -28,6 +28,13 @@ class ViewsBootstrapCarousel extends StylePluginBase {
   protected $usesRowPlugin = TRUE;
 
   /**
+   * Whether the config form exposes the class to provide on each row.
+   *
+   * @var bool
+   */
+  protected $usesRowClass = TRUE;
+
+  /**
    * Definition.
    */
   protected function defineOptions() {

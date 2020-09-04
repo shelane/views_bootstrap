@@ -5,6 +5,7 @@
  * Preprocessors and helper functions to make theming easier.
  */
 
+use Drupal\Component\Utility\Html;
 use Drupal\views_bootstrap\ViewsBootstrap;
 use Drupal\Core\Template\Attribute;
 
@@ -83,6 +84,8 @@ function template_preprocess_views_bootstrap_carousel(array &$vars) {
 
   foreach ($vars['rows'] as $id => $row) {
     $vars['rows'][$id] = [];
+    $row_attributes = ['class' => []];
+    $class = $view->style_plugin->options['row_class'];
     if ($view->style_plugin->usesFields()) {
       $vars['rows'][$id]['image'] = $view->style_plugin->getField($id, $image);
       $vars['rows'][$id]['title'] = $view->style_plugin->getField($id, $title);
@@ -93,11 +96,21 @@ function template_preprocess_views_bootstrap_carousel(array &$vars) {
           $vars['rows'][$id][$label] = $view->style_plugin->getField($id, $label);
         }
       }
+      $class = strip_tags($view->style_plugin->tokenizeValue($class, $id));
+      $class = Html::cleanCssIdentifier($class);
     }
     else {
       $vars['rows'][$id]['content'] = $row;
     }
-
+    $classes = explode(' ', $class);
+    foreach ($classes as &$class) {
+      $class = Html::cleanCssIdentifier($class);
+    }
+    $row_class = array_filter($classes);
+    if (!empty($row_class)) {
+      $row_attributes['class'] = array_merge($row_attributes['class'], $row_class);
+    }
+    $vars['rows'][$id]['attributes'] = new Attribute($row_attributes);
   }
 
 }
