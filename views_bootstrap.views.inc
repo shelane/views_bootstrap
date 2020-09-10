@@ -85,7 +85,7 @@ function views_bootstrap_views_plugins() {
         'type' => 'normal',
       ),
       'views_bootstrap_tab_plugin_style' => array(
-        'title' => t('Bootstrap Tab'),
+        'title' => t('Bootstrap Tabs'),
         'help' => t('Bootstrap Tab Style'),
         'path' => $module_path . '/plugins/tab',
         'handler' => 'ViewsBootstrapTabPluginStyle',

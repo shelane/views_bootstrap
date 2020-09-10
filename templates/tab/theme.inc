@@ -8,7 +8,8 @@ function template_preprocess_views_bootstrap_tab_plugin_style(&$vars) {
   $tab_field = $vars['options']['tab_field'];
 
   $vars['tab_type'] = $vars['options']['tab_type'];
-  $vars['justified'] = $vars['options']['justified'];
+  $vars['tab_position'] = $vars['options']['tab_position'];
+  $vars['tab_fade'] = $vars['options']['tab_fade'];
 
   // Get tabs.
   if (isset($view->field[$tab_field])) {
@@ -19,4 +20,5 @@ function template_preprocess_views_bootstrap_tab_plugin_style(&$vars) {
 
   $keys = array_keys($vars['rows']);
   $vars['first_key'] = reset($keys);
+  drupal_add_css(drupal_get_path('module', 'views_bootstrap') . '/css/tabs.css');
 }
