@@ -183,6 +183,21 @@ class ViewsBootstrapGrid extends StylePluginBase {
     if ($this->usesFields()) {
       $form['row_class_custom']['#description'] .= ' ' . $this->t('You may use field tokens from as per the "Replacement patterns" used in "Rewrite the output of this field" for all fields.');
     }
+    $form['columns'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Base number of columns'),
+      '#default_value' => $this->options['columns'],
+      '#required' => TRUE,
+      '#options' => [
+        1 => 1,
+        2 => 2,
+        3 => 3,
+        4 => 4,
+        6 => 6,
+        12 => 12,
+      ],
+      '#description' => $this->t('Choose the number of columns that views will wrap in a single row. This will be reflected in the HTML structure rendered regardless of the device size.'),
+    ];
 
     foreach (['xs', 'sm', 'md', 'lg'] as $size) {
       $form["col_${size}"] = [
