@@ -1,4 +1,10 @@
-<?php if (!empty($title)): ?>
+<?php
+
+/**
+ * @file
+ * Template to display Bootstrap accordions.
+ */
+if (!empty($title)): ?>
   <h3><?php print $title ?></h3>
 <?php endif ?>
 <?php $loop_count = 0; ?>
@@ -23,7 +29,8 @@
           </h4>
         </div>
 
-        <div id="collapse-<?php print $id . '-' . $key ?>" class="panel-collapse collapse<?php if ($expanded == 'true') print ' in' ?>" role="tabpanel" aria-labelledby="heading<?php print $id . '-' . $key ?>">
+        <div id="collapse-<?php print $id . '-' . $key ?>" class="panel-collapse collapse<?php if ($expanded == 'true') {print ' in';
+       } ?>" role="tabpanel" aria-labelledby="heading<?php print $id . '-' . $key ?>">
           <div class="panel-body">
             <?php print $row ?>
           </div>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Definition of views_bootstrap_plugin_style.
@@ -8,6 +9,7 @@
  * Class to define a style plugin handler.
  */
 class ViewsBootstrapAccordionPluginStyle extends views_plugin_style {
+
   /**
    * Definition.
    */
@@ -21,7 +23,7 @@ class ViewsBootstrapAccordionPluginStyle extends views_plugin_style {
   /**
    * Options form.
    */
-  function options_form(&$form, &$form_state) {
+  public function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
 
     if (isset($form['grouping'])) {
@@ -54,4 +56,5 @@ class ViewsBootstrapAccordionPluginStyle extends views_plugin_style {
       );
     }
   }
+
 }

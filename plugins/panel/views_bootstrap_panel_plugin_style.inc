@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Definition of views_bootstrap_plugin_style.
@@ -8,6 +9,7 @@
  * Class to define a style plugin handler.
  */
 class ViewsBootstrapPanelPluginStyle extends views_plugin_style {
+
   /**
    * Definition.
    */
@@ -25,7 +27,7 @@ class ViewsBootstrapPanelPluginStyle extends views_plugin_style {
   /**
    * Options form.
    */
-  function options_form(&$form, &$form_state) {
+  public function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
 
     if (isset($form['grouping'])) {
@@ -44,7 +46,7 @@ class ViewsBootstrapPanelPluginStyle extends views_plugin_style {
         '#description' => t('Select the field that will be used as the heading.'),
         '#id' => 'heading-field',
       );
-      
+
       $field_labels = $this->display->handler->get_field_labels(TRUE);
       $form['title'] = array(
         '#type' => 'checkbox',
@@ -108,4 +110,5 @@ class ViewsBootstrapPanelPluginStyle extends views_plugin_style {
       );
     }
   }
+
 }

@@ -1,4 +1,10 @@
-<?php if (!empty($title)): ?>
+<?php
+
+/**
+ * @file
+ * Default simple view template to display Bootstrap Panels.
+ */
+if (!empty($title)): ?>
   <h3><?php print $title ?></h3>
 <?php endif ?>
 
@@ -11,7 +17,7 @@
             <<?php print $title_tag; ?> class="panel-title">
           <?php endif ?>
             <?php print $headers[$key] ?>
-          <?php if ($title_flag): ?>          
+          <?php if ($title_flag): ?>
             </<?php print $title_tag; ?>>
           <?php endif ?>
         </div>
@@ -22,11 +28,11 @@
           <?php print $bodys[$key] ?>
         </div>
       <?php endif ?>
-      
+
       <?php if (isset($footers[$key])): ?>
         <div class="panel-footer">
           <?php print $footers[$key] ?>
-        </div>      
+        </div>
       <?php endif ?>
 
     </div>

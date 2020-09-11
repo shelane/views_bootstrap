@@ -1,4 +1,10 @@
-<?php if (!empty($title)): ?>
+<?php
+
+/**
+ * @file
+ * Template to display Bootstrap tabs.
+ */
+if (!empty($title)): ?>
   <h3><?php print $title ?></h3>
 <?php endif ?>
 <?php
@@ -16,7 +22,8 @@
   <?php if ($tab_position != 'below'): ?>
   <ul class="<?php print $option_classes ?>" role="tablist">
     <?php foreach ($tabs as $key => $tab): ?>
-     <li class="<?php if ($key == $first_key) print 'active' ?>" role="presentation">
+     <li class="<?php if ($key == $first_key) {print 'active';
+    } ?>" role="presentation">
        <a href="#tab-<?php print "{$id}-{$key}" ?>" aria-controls="tab-<?php print "{$id}-{$key}" ?>" role="tab" data-toggle="tab"><?php print $tab ?></a>
      </li>
     <?php endforeach ?>
@@ -41,11 +48,11 @@
   <?php if ($tab_position == 'below'): ?>
     <ul class="<?php print $option_classes ?>" role="tablist">
       <?php foreach ($tabs as $key => $tab): ?>
-        <li class="<?php if ($key == $first_key) print 'active' ?>" role="presentation">
+        <li class="<?php if ($key == $first_key) {print 'active';
+       } ?>" role="presentation">
           <a href="#tab-<?php print "{$id}-{$key}" ?>" aria-controls="tab-<?php print "{$id}-{$key}" ?>" role="tab" data-toggle="tab"><?php print $tab ?></a>
         </li>
       <?php endforeach ?>
     </ul>
   <?php endif ?>
 </div>
-

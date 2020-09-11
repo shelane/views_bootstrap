@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Preprocessors and helper functions for carousel theming.
+ */
+
+/**
  * Implementation of template preprocess for the view.
  */
 function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
@@ -11,9 +16,9 @@ function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
           'id' => $vars['id'],
           'name' => $vars['view']->name,
           'attributes' => array(
-            'interval' => $vars['options']['interval'] ? (int)$vars['options']['interval'] : FALSE,
+            'interval' => $vars['options']['interval'] ? (int) $vars['options']['interval'] : FALSE,
             'pause' => $vars['options']['pause'] ? 'hover' : FALSE,
-            'wrap' => (bool)$vars['options']['wrap'] ? TRUE : FALSE,
+            'wrap' => (bool) $vars['options']['wrap'] ? TRUE : FALSE,
           ),
         ),
       ),
@@ -31,7 +36,7 @@ function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
         $rows[] = $row;
       }
       else {
-        $rows[(count($rows)-1)] .= $row;
+        $rows[(count($rows) - 1)] .= $row;
       }
     }
 
@@ -41,10 +46,10 @@ function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
   $vars['classes_array'][] = 'carousel slide';
   $vars['attributes_array']['data-ride'] = 'carousel';
 
-  $vars['attributes_array']['data-wrap'] = (bool)$vars['options']['wrap'] ? 'true' : 'false';
+  $vars['attributes_array']['data-wrap'] = (bool) $vars['options']['wrap'] ? 'true' : 'false';
 
-  $vars['navigation'] = (bool)$vars['options']['navigation'];
-  $vars['indicators'] = (bool)$vars['options']['indicators'];
+  $vars['navigation'] = (bool) $vars['options']['navigation'];
+  $vars['indicators'] = (bool) $vars['options']['indicators'];
 
   $keys = array_keys($vars['rows']);
   $vars['first_key'] = reset($keys);
@@ -55,7 +60,8 @@ function template_preprocess_views_bootstrap_carousel_plugin_style(&$vars) {
  */
 function template_preprocess_views_bootstrap_carousel_plugin_rows(&$vars) {
   $view = &$vars['view'];
-  $row_index = $view->row_index; // Clone value because get_field will unset it.
+  // Clone value because get_field will unset it.
+  $row_index = $view->row_index;
 
   foreach ($vars['options'] as $id => $field) {
     if (isset($view->field[$field])) {

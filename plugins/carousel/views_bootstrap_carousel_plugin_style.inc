@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Definition of views_bootstrap_plugin_style.
@@ -8,6 +9,7 @@
  * Class to define a style plugin handler.
  */
 class ViewsBootstrapCarouselPluginStyle extends views_plugin_style {
+
   /**
    * Definition.
    */
@@ -25,7 +27,7 @@ class ViewsBootstrapCarouselPluginStyle extends views_plugin_style {
   /**
    * Form.
    */
-  function options_form(&$form, &$form_state) {
+  public function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
 
     $form['interval'] = array(
@@ -69,4 +71,5 @@ class ViewsBootstrapCarouselPluginStyle extends views_plugin_style {
       '#default_value' => $this->options['items_per_slide'],
     );
   }
+
 }

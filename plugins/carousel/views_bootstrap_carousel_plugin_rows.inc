@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Definition of views_bootstrap_plugin_rows.
@@ -8,6 +9,7 @@
  * Class to define a row plugin handler.
  */
 class ViewsBootstrapCarouselPluginRows extends views_plugin_row {
+
   /**
    * Definition.
    */
@@ -23,7 +25,7 @@ class ViewsBootstrapCarouselPluginRows extends views_plugin_row {
   /**
    * Form.
    */
-  function options_form(&$form, &$form_state) {
+  public function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
 
     // Pre-build all of our option lists for the dials and switches that follow.
@@ -59,4 +61,5 @@ class ViewsBootstrapCarouselPluginRows extends views_plugin_row {
       '#default_value' => $this->options['description'],
     );
   }
+
 }

@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Preprocessors and helper functions for tab theming.
+ */
+
+/**
  * Implementation of template preprocess for the view.
  */
 function template_preprocess_views_bootstrap_tab_plugin_style(&$vars) {
