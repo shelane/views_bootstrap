@@ -40,6 +40,7 @@ class ViewsBootstrapAccordion extends StylePluginBase {
   protected function defineOptions() {
     $options = parent::defineOptions();
     $options['panel_title_field'] = ['default' => NULL];
+    $options['behavior'] = ['default' => 'closed'];
 
     return $options;
   }
@@ -57,6 +58,18 @@ class ViewsBootstrapAccordion extends StylePluginBase {
       '#required' => TRUE,
       '#default_value' => $this->options['panel_title_field'],
       '#description' => $this->t('Select the field that will be used as the accordion panel titles.'),
+    ];
+    $form['behavior'] = [
+      '#type' => 'radios',
+      '#title' => $this->t('Collapse Options'),
+      '#options' => [
+        'closed' => $this->t('All Items Closed'),
+        'first' => $this->t('First Item Open'),
+        'all' => $this->t('All Items Open'),
+      ],
+      '#required' => TRUE,
+      '#description' => $this->t('Default panel state for collapse behavior.'),
+      '#default_value' => $this->options['behavior'],
     ];
   }
 

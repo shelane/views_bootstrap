@@ -24,6 +24,7 @@ function template_preprocess_views_bootstrap_accordion(array &$vars) {
   $vars['id'] = ViewsBootstrap::getUniqueId($view);
   $group_title_field = isset($view->style_plugin->options['grouping'][0]) ? $view->style_plugin->options['grouping'][0]['field'] : "";
   $panel_title_field = $view->style_plugin->options['panel_title_field'];
+  $vars['behavior'] = $view->style_plugin->options['behavior'];
   $vars['attributes']['class'][] = 'panel-group';
   if ($panel_title_field) {
     foreach ($vars['rows'] as $id => $row) {
