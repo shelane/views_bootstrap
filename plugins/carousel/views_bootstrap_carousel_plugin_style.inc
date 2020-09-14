@@ -67,7 +67,7 @@ class ViewsBootstrapCarouselPluginStyle extends views_plugin_style {
     $form['items_per_slide'] = array(
       '#type' => 'textfield',
       '#title' => t('Item per slide'),
-      '#description' => t('How many items show per slide.'),
+      '#description' => t('How many items shown per slide.'),
       '#default_value' => $this->options['items_per_slide'],
     );
   }
