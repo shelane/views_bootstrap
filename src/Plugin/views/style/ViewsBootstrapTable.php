@@ -27,6 +27,9 @@ class ViewsBootstrapTable extends Table {
   protected function defineOptions() {
     $options = parent::defineOptions();
     $options['bootstrap_styles'] = ['default' => []];
+    $options['caption'] = ['default' => ''];
+    $options['summary'] = ['default' => ''];
+    $options['description'] = ['default' => ''];
     $options['responsive'] = ['default' => FALSE];
 
     return $options;
@@ -55,6 +58,39 @@ class ViewsBootstrapTable extends Table {
         'hover' => $this->t('Hover'),
         'condensed' => $this->t('Condensed'),
       ],
+    ];
+
+    $form['caption'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Caption for the table'),
+      '#description' => $this->t('A title semantically associated with your table for increased accessibility.'),
+      '#default_value' => $this->options['caption'],
+      '#maxlength' => 255,
+    ];
+
+    $form['accessibility_details'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Table details'),
+    ];
+
+    $form['summary'] = [
+      '#title' => $this->t('Summary title'),
+      '#type' => 'textfield',
+      '#default_value' => $this->options['summary'],
+      '#fieldset' => 'accessibility_details',
+    ];
+
+    $form['description'] = [
+      '#title' => $this->t('Table description'),
+      '#type' => 'textarea',
+      '#description' => $this->t('Provide additional details about the table to increase accessibility.'),
+      '#default_value' => $this->options['description'],
+      '#states' => [
+        'visible' => [
+          'input[name="style_options[summary]"]' => ['filled' => TRUE],
+        ],
+      ],
+      '#fieldset' => 'accessibility_details',
     ];
   }
 
