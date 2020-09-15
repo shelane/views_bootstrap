@@ -20,7 +20,7 @@ function views_bootstrap_update_7100(&$sandbox) {
   $items_per_pass = 10;
 
   // Get the view_displays to process during this pass.
-  $result = db_query_range("SELECT vid, id, display_options FROM {views_display}", $sandbox['current'], $items_per_pass);
+  $result = db_query_range("SELECT vid, id, display_options FROM {views_display} ORDER BY vid, id", $sandbox['current'], $items_per_pass);
   while ($row = $result->fetchAssoc()) {
     // Unserialize display_options.
     $options = unserialize($row['display_options']);
