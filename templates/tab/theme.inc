@@ -25,5 +25,6 @@ function template_preprocess_views_bootstrap_tab_plugin_style(&$vars) {
 
   $keys = array_keys($vars['rows']);
   $vars['first_key'] = reset($keys);
+  drupal_add_js(drupal_get_path('module', 'views_bootstrap') . '/js/tabs.js');
   drupal_add_css(drupal_get_path('module', 'views_bootstrap') . '/css/tabs.css');
 }
