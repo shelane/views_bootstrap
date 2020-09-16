@@ -207,23 +207,15 @@ function template_preprocess_views_bootstrap_panel(array &$vars) {
   $vars['id'] = ViewsBootstrap::getUniqueId($view);
   $group_title_field = isset($view->style_plugin->options['grouping'][0]) ? $view->style_plugin->options['grouping'][0]['field'] : "";
   $panel_title_field = $view->style_plugin->options['panel_title_field'];
+  $panel_footer_field = $view->style_plugin->options['panel_footer_field'];
   $vars['attributes']['class'][] = 'panel-group';
-  if ($panel_title_field) {
-    foreach ($vars['rows'] as $id => $row) {
-      $vars['group_title'] = $group_title_field ? $view->style_plugin->getField($id, $group_title_field) : "";
-      $vars['rows'][$id] = [];
-      $vars['rows'][$id]['content'] = $row;
-      $vars['rows'][$id]['title'] = $view->style_plugin->getField($id, $panel_title_field);
-    }
-  }
-  else {
-    // @TODO: This would be better as validation errors on the style plugin options form.
-    Drupal::messenger()->addWarning(t('@style style will not display without the "@field" setting.',
-      [
-        '@style' => $view->style_plugin->definition['title'],
-        '@field' => 'Panel title',
-      ]
-    ));
+  $vars['panel_class'] = $view->style_plugin->options['contextual_class'];
+  foreach ($vars['rows'] as $id => $row) {
+    $vars['group_title'] = $group_title_field ? $view->style_plugin->getField($id, $group_title_field) : "";
+    $vars['rows'][$id] = [];
+    $vars['rows'][$id]['content'] = $row;
+    $vars['rows'][$id]['title'] = $view->style_plugin->getField($id, $panel_title_field);
+    $vars['rows'][$id]['footer'] = $view->style_plugin->getField($id, $panel_footer_field);
   }
   // @TODO: Make sure that $vars['rows'] is rendered array.
   // @SEE: Have a look template_preprocess_views_view_unformatted()
