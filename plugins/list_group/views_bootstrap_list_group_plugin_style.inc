@@ -34,6 +34,18 @@ class ViewsBootstrapListGroupPluginStyle extends views_plugin_style {
         }
       }
 
+      $form['panels'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Set group field in panel heading'),
+        '#default_value' => $this->options['panels'],
+        '#states' => array(
+          'invisible' => array(
+            ':input[name="style_options[grouping][0][field]"]' => ['value' => ''],
+          ),
+        ),
+        '#weight' => 0,
+      );
+
       $form['link_field'] = array(
         '#type' => 'select',
         '#title' => t('Link field'),
