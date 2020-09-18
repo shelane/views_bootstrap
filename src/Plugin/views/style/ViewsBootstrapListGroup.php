@@ -41,6 +41,7 @@ class ViewsBootstrapListGroup extends StylePluginBase {
   protected function defineOptions() {
     $options = parent::defineOptions();
     $options['link_field'] = ['default' => []];
+    $options['panels'] = ['default' => FALSE];
     return $options;
   }
 
@@ -52,6 +53,18 @@ class ViewsBootstrapListGroup extends StylePluginBase {
 
     $fields = ['' => $this->t('<None>')];
     $fields += $this->displayHandler->getFieldLabels(TRUE);
+
+    $form['panels'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Set group field in panel heading'),
+      '#default_value' => $this->options['panels'],
+      '#states' => [
+        'invisible' => [
+          ':input[name="style_options[grouping][0][field]"]' => ['value' => ''],
+        ],
+      ],
+      '#weight' => 0,
+    ];
 
     $form['title_field'] = [
       '#type' => 'select',

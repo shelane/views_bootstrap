@@ -157,7 +157,10 @@ function template_preprocess_views_bootstrap_list_group(array &$vars) {
   $options = $view->style_plugin->options;
   $vars['id'] = ViewsBootstrap::getUniqueId($view);
   $vars['attributes']['class'][] = 'views-bootstrap-list-group';
+  $group_title_field = isset($view->style_plugin->options['grouping'][0]) ? $view->style_plugin->options['grouping'][0]['field'] : "";
+  $vars['panels'] = isset($view->style_plugin->options['panels']) ? $view->style_plugin->options['panels'] : FALSE;
   foreach ($vars['rows'] as $id => $row) {
+    $vars['group_title'] = $group_title_field ? $view->style_plugin->getField($id, $group_title_field) : "";
     $vars['rows'][$id] = [];
     $vars['rows'][$id]['content'] = $row;
     $vars['rows'][$id]['title'] = $vars['view']->style_plugin->getField($id, $options['title_field']);
