@@ -61,6 +61,15 @@ class ViewsBootstrapMediaObject extends StylePluginBase {
       '#description' => $this->t('Select the field that will be used as the media object heading.'),
     ];
 
+    $form['body_field'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Body field'),
+      '#options' => $optionalFields,
+      '#required' => FALSE,
+      '#default_value' => $this->options['body_field'],
+      '#description' => $this->t('Select the field that will be used as the media object body.'),
+    ];
+
     $form['image_field'] = [
       '#type' => 'select',
       '#title' => $this->t('Image field'),
@@ -80,15 +89,6 @@ class ViewsBootstrapMediaObject extends StylePluginBase {
       ],
       '#default_value' => $this->options['image_class'],
       '#description' => $this->t('Align the media object image left or right.'),
-    ];
-
-    $form['body_field'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Body field'),
-      '#options' => $optionalFields,
-      '#required' => FALSE,
-      '#default_value' => $this->options['body_field'],
-      '#description' => $this->t('Select the field that will be used as the media object body.'),
     ];
 
   }
