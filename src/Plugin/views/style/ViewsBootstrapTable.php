@@ -87,7 +87,7 @@ class ViewsBootstrapTable extends Table {
       '#default_value' => $this->options['description'],
       '#states' => [
         'visible' => [
-          'input[name="style_options[summary]"]' => ['filled' => TRUE],
+          ':input[name="style_options[summary]"]' => ['filled' => TRUE],
         ],
       ],
       '#fieldset' => 'accessibility_details',
