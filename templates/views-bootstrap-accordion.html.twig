@@ -1,12 +1,13 @@
-{% set title_attributes = create_attribute({'class': ['accordion-toggle', 'collapsed']}) %}
+{% set title_attributes = create_attribute({'class': ['accordion-toggle']}) %}
 {% if group_title %}<h3>{{ group_title }}</h3>{% endif %}
 <div {{ attributes.addClass(classes).setAttribute('id', id).setAttribute('role', 'tablist').setAttribute('aria-multiselectable', 'true') }}>
   {% for key, row in rows -%}
     {% set expanded = (behavior == 'first' and loop.first) or behavior == 'all' ? true : false %}
+    {% set title_class = [expanded == false ? 'collapsed' : ''] %}
     <div class="panel panel-default">
       <div class="panel-heading" {{ attributes.addClass('panel-heading').setAttribute('role', 'tab').setAttribute('id', 'heading' ~ id ~ '-collapse-' ~ key) }}>
         <h4 class="panel-title">
-          <a {{ title_attributes }}
+          <a {{ title_attributes.addClass(title_class) }}
              role="button"
              data-toggle="collapse"
              data-parent="#{{ id }}"
