@@ -142,6 +142,11 @@ class ViewsBootstrapGrid extends StylePluginBase {
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
+    $form['help'] = [
+      '#markup' => $this->t('The Bootstrap grid displays content in a responsive, mobile first fluid grid (<a href=":docs">see Bootstrap documentation</a>).', [':docs' => 'https://getbootstrap.com/docs/3.4/css/#grid']),
+      '#weight' => -99,
+    ];
+
     $form['alignment'] = [
       '#type' => 'radios',
       '#title' => $this->t('Alignment'),

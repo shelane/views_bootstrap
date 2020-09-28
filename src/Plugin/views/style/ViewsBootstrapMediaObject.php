@@ -48,6 +48,11 @@ class ViewsBootstrapMediaObject extends StylePluginBase {
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
+    $form['help'] = [
+      '#markup' => $this->t('The Bootstrap media object displays content with an image item lead with heading and text (<a href=":docs">see Bootstrap documentation</a>).', [':docs' => 'https://getbootstrap.com/docs/3.4/components/#media']),
+      '#weight' => -99,
+    ];
+
     $fields = $this->displayHandler->getFieldLabels(TRUE);
     $optionalFields = ['' => $this->t('<None>')];
     $optionalFields += $this->displayHandler->getFieldLabels(TRUE);

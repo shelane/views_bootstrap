@@ -12,7 +12,7 @@ use Drupal\views\Plugin\views\style\StylePluginBase;
  *
  * @ViewsStyle(
  *   id = "views_bootstrap_panel",
- *   title = @Translation("Bootstrap Panel"),
+ *   title = @Translation("Bootstrap Panels"),
  *   help = @Translation("Displays rows in a Bootstrap Panel."),
  *   theme = "views_bootstrap_panel",
  *   theme_file = "../views_bootstrap.theme.inc",
@@ -51,6 +51,12 @@ class ViewsBootstrapPanel extends StylePluginBase {
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
+
+    $form['help'] = [
+      '#markup' => $this->t('The Bootstrap panels displays content in a box with optional header and footer elements (<a href=":docs">see Bootstrap documentation</a>).', [':docs' => 'https://getbootstrap.com/docs/3.4/components/#panels']),
+      '#weight' => -99,
+    ];
+
     $form['contextual_class'] = [
       '#type' => 'radios',
       '#title' => $this->t('Contextual class'),
@@ -63,7 +69,7 @@ class ViewsBootstrapPanel extends StylePluginBase {
         'panel-danger' => $this->t('Danger'),
       ],
       '#default_value' => $this->options['contextual_class'],
-      '#description' => $this->t('<a href=":docs">See Bootstrap documentation</a>', [':docs' => 'https://getbootstrap.com/docs/3.4/components/#panels-alternatives']),
+      '#description' => $this->t('<a href=":docs">see Bootstrap documentation</a>', [':docs' => 'https://getbootstrap.com/docs/3.4/components/#panels-alternatives']),
     ];
 
     $form['panel_title_field'] = [

@@ -41,6 +41,11 @@ class ViewsBootstrapTable extends Table {
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
+    $form['help'] = [
+      '#markup' => $this->t('The Bootstrap table style adds default Bootstrap table classes and optional classes (<a href=":docs">see Bootstrap documentation</a>).', [':docs' => 'https://getbootstrap.com/docs/3.4/css/#tables']),
+      '#weight' => -99,
+    ];
+
     $form['responsive'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Responsive'),
