@@ -25,7 +25,7 @@ function views_bootstrap_help($route_name, RouteMatchInterface $route_match) {
       $output .= '<ul>';
       $output .= '<li>' . t('<a href=":docs">Accordion</a>', [':docs' => 'https://getbootstrap.com/docs/3.4/javascript/#collapse-example-accordion']) . '</li>';
       $output .= '<li>' . t('<a href=":docs">Carousel</a>', [':docs' => 'https://getbootstrap.com/docs/3.4/javascript/#carousel']) . '</li>';
-      $output .= '<li>' . t('<a href=":docs">Dropdown</a>', [':docs' => 'https://getbootstrap.com/docs/3.4/javascript/#dropdowns']) . '</li>';
+      $output .= '<li>' . t('<a href=":docs">Dropdown</a>', [':docs' => 'https://getbootstrap.com/docs/3.4/components/#dropdowns']) . '</li>';
       $output .= '<li>' . t('<a href=":docs">Grid</a>', [':docs' => 'https://getbootstrap.com/docs/3.4/css/#grid']) . '</li>';
       $output .= '<li>' . t('<a href=":docs">Thumbnails</a>', [':docs' => 'https://getbootstrap.com/docs/3.4/components/#thumbnails']) . '</li>';
       $output .= '<li>' . t('<a href=":docs">Tables</a>', [':docs' => 'https://getbootstrap.com/docs/3.4/css/#tables']) . '</li>';
