@@ -13,12 +13,14 @@ if (!empty($title)): ?>
   <?php
     $loop_count++;
     $expanded = (($loop_count == 1 && $behavior == 'first') || $behavior == 'all') ? 'true' : 'false';
+    $title_classes = 'accordion-toggle';
+    $title_classes .= $expanded ? '' : ' collapsed';
     ?>
     <?php if (isset($titles[$key])): ?>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="heading<?php print $id . '-' . $key ?>">
           <h4 class="panel-title">
-            <a role="button" class="accordion-toggle collapsed"
+            <a role="button" class="<?php print $title_classes ?>"
               data-toggle="collapse"
               data-parent="#views-bootstrap-accordion-<?php print $id ?>"
               href="#collapse-<?php print $id . '-' . $key ?>"
