@@ -45,7 +45,9 @@ class ViewsBootstrapTab extends StylePluginBase {
     $options = parent::defineOptions();
     $options['tab_field'] = ['default' => NULL];
     $options['tab_type'] = ['default' => 'tabs'];
-    $options['justified'] = ['default' => FALSE];
+    $options['tab_position'] = ['default' => 'basic'];
+    $options['tab_fade'] = ['default' => FALSE];
+
     return $options;
   }
 
