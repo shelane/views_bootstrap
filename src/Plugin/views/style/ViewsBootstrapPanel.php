@@ -53,7 +53,7 @@ class ViewsBootstrapPanel extends StylePluginBase {
     parent::buildOptionsForm($form, $form_state);
 
     $form['help'] = [
-      '#markup' => $this->t('The Bootstrap panels displays content in a box with optional header and footer elements (<a href=":docs">see Bootstrap documentation</a>).', [':docs' => 'https://getbootstrap.com/docs/3.4/components/#panels']),
+      '#markup' => $this->t('The Bootstrap panels displays content in a box with optional header and footer elements (<a href=":docs">see documentation</a>).', [':docs' => 'https://www.drupal.org/docs/contributed-modules/views-bootstrap-for-bootstrap-3/panels']),
       '#weight' => -99,
     ];
 
@@ -69,7 +69,7 @@ class ViewsBootstrapPanel extends StylePluginBase {
         'panel-danger' => $this->t('Danger'),
       ],
       '#default_value' => $this->options['contextual_class'],
-      '#description' => $this->t('<a href=":docs">see Bootstrap documentation</a>', [':docs' => 'https://getbootstrap.com/docs/3.4/components/#panels-alternatives']),
+      '#description' => $this->t('<a href=":docs">see documentation</a>', [':docs' => 'https://getbootstrap.com/docs/3.4/components/#panels-alternatives']),
     ];
 
     $form['panel_title_field'] = [
