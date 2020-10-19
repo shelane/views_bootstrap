@@ -52,7 +52,7 @@ class ViewsBootstrapAccordion extends StylePluginBase {
     parent::buildOptionsForm($form, $form_state);
 
     $form['help'] = [
-      '#markup' => $this->t('The Bootstrap accordion displays content in collapsable panels (<a href=":docs">see Bootstrap documentation</a>).', [':docs' => 'https://getbootstrap.com/docs/3.4/javascript/#collapse-example-accordion']),
+      '#markup' => $this->t('The Bootstrap accordion displays content in collapsible panels (<a href=":docs">see Bootstrap documentation</a>).', [':docs' => 'https://getbootstrap.com/docs/3.4/javascript/#collapse-example-accordion']),
       '#weight' => -99,
     ];
 
