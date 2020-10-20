@@ -35,6 +35,11 @@ class ViewsBootstrapMediaPluginStyle extends views_plugin_style {
         }
       }
 
+      $form['help'] = array(
+        '#markup' => t('The Bootstrap media object displays content with an image item lead with heading and text (<a href="!docs">see documentation</a>).', ['!docs' => 'https://www.drupal.org/docs/7/modules/views-bootstrap/media-object']),
+        '#weight' => -99,
+      );
+
       $form['image_field'] = array(
         '#type' => 'select',
         '#title' => t('Image field'),

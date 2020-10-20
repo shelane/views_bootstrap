@@ -29,7 +29,7 @@ class ViewsBootstrapDropdownPluginStyle extends views_plugin_style {
     parent::options_form($form, $form_state);
 
     $form['help'] = array(
-      '#markup' => t('The Bootstrap dropdown style displays a list of links in a drop-down menu format (<a href=":docs">see Bootstrap documentation</a>).', [':docs' => 'https://getbootstrap.com/docs/3.4/javascript/#dropdowns']),
+      '#markup' => t('The Bootstrap dropdown style displays a list of links in a drop-down menu format (<a href="!docs">see Bootstrap documentation</a>).', ['!docs' => 'https://www.drupal.org/docs/7/modules/views-bootstrap/dropdown']),
       '#weight' => -99,
     );
 

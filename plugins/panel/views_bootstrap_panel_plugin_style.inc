@@ -38,6 +38,11 @@ class ViewsBootstrapPanelPluginStyle extends views_plugin_style {
         }
       }
 
+      $form['help'] = array(
+        '#markup' => t('The Bootstrap panels displays content in a box with optional header and footer elements (<a href="!docs">see documentation</a>).', ['!docs' => 'https://www.drupal.org/docs/7/modules/views-bootstrap/panels']),
+        '#weight' => -99,
+      );
+
       $form['heading_field'] = array(
         '#type' => 'select',
         '#title' => t('Heading field'),

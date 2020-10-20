@@ -33,6 +33,10 @@ class ViewsBootstrapAccordionPluginStyle extends views_plugin_style {
           $options = array_merge($options, $form['grouping'][$key]['field']['#options']);
         }
       }
+      $form['help'] = array(
+        '#markup' => t('The Bootstrap accordion displays content in collapsible panels (<a href="!docs">see documentation</a>).', ['!docs' => 'https://www.drupal.org/docs/7/modules/views-bootstrap/accordion']),
+        '#weight' => -99,
+      );
 
       $form['title_field'] = array(
         '#type' => 'select',
