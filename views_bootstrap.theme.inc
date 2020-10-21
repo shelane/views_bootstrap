@@ -6,6 +6,7 @@
  */
 
 use Drupal\Component\Utility\Html;
+use Drupal\Component\Utility\Xss;
 use Drupal\views_bootstrap\ViewsBootstrap;
 use Drupal\Core\Template\Attribute;
 
@@ -247,7 +248,22 @@ function template_preprocess_views_bootstrap_tab(array &$vars) {
   if ($tab_field) {
     if (isset($view->field[$tab_field])) {
       foreach (array_keys($vars['rows']) as $key) {
-        $vars['tabs'][$key] = $view->style_plugin->getField($key, $tab_field);
+        $vars['tabs'][$key] = [
+          '#markup' => Xss::filter($view->style_plugin->getField($key, $tab_field), [
+            'img',
+            'br',
+            'h2',
+            'h3',
+            'h4',
+            'h5',
+            'h6',
+            'span',
+            'strong',
+            'em',
+            'i',
+            'small',
+          ]),
+        ];
       }
     }
     foreach ($vars['rows'] as $id => $row) {
