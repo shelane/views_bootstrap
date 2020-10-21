@@ -69,7 +69,7 @@ class ViewsBootstrapPanel extends StylePluginBase {
         'panel-danger' => $this->t('Danger'),
       ],
       '#default_value' => $this->options['contextual_class'],
-      '#description' => $this->t('<a href=":docs">see documentation</a>', [':docs' => 'https://getbootstrap.com/docs/3.4/components/#panels-alternatives']),
+      '#description' => $this->t('<a href=":docs">see Bootstrap documentation</a>', [':docs' => 'https://getbootstrap.com/docs/3.4/components/#panels-alternatives']),
     ];
 
     $form['panel_title_field'] = [
