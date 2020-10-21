@@ -32,7 +32,22 @@ function template_preprocess_views_bootstrap_accordion(array &$vars) {
       $vars['group_title'] = $group_title_field ? $view->style_plugin->getField($id, $group_title_field) : "";
       $vars['rows'][$id] = [];
       $vars['rows'][$id]['content'] = $row;
-      $vars['rows'][$id]['title'] = $view->style_plugin->getField($id, $panel_title_field);
+      $vars['rows'][$id]['title'] = [
+        '#markup' => Xss::filter($view->style_plugin->getField($id, $panel_title_field), [
+          'img',
+          'br',
+          'h2',
+          'h3',
+          'h4',
+          'h5',
+          'h6',
+          'span',
+          'strong',
+          'em',
+          'i',
+          'small',
+        ]),
+      ];
     }
   }
   else {
