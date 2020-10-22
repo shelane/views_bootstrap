@@ -199,14 +199,13 @@ function template_preprocess_views_bootstrap_media_object(array &$vars) {
   $vars['image_class'] = $vars['view']->style_plugin->options['image_class'];
   $image_field = $vars['view']->style_plugin->options['image_field'];
   $heading_field = $vars['view']->style_plugin->options['heading_field'];
-  $body_field = $vars['view']->style_plugin->options['body_field'];
   $vars['attributes']['class'][] = 'media-object';
 
   foreach ($vars['rows'] as $id => $row) {
     $vars['rows'][$id] = [];
     $vars['rows'][$id]['image'] = $vars['view']->style_plugin->getField($id, $image_field);
     $vars['rows'][$id]['heading'] = $vars['view']->style_plugin->getField($id, $heading_field);
-    $vars['rows'][$id]['body'] = $vars['view']->style_plugin->getField($id, $body_field);
+    $vars['rows'][$id]['body'] = $row;
   }
 }
 

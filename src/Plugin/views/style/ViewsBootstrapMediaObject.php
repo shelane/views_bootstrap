@@ -29,6 +29,11 @@ class ViewsBootstrapMediaObject extends StylePluginBase {
   protected $usesFields = TRUE;
 
   /**
+   * {@inheritdoc}
+   */
+  protected $usesRowPlugin = TRUE;
+
+  /**
    * Definition.
    */
   protected function defineOptions() {
@@ -36,7 +41,6 @@ class ViewsBootstrapMediaObject extends StylePluginBase {
 
     $options['image_field'] = ['default' => []];
     $options['heading_field'] = ['default' => []];
-    $options['body_field'] = ['default' => []];
     $options['image_class'] = ['default' => 'media-left'];
 
     return $options;
@@ -63,16 +67,7 @@ class ViewsBootstrapMediaObject extends StylePluginBase {
       '#options' => $fields,
       '#required' => TRUE,
       '#default_value' => $this->options['heading_field'],
-      '#description' => $this->t('Select the field that will be used as the media object heading.'),
-    ];
-
-    $form['body_field'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Body field'),
-      '#options' => $optionalFields,
-      '#required' => FALSE,
-      '#default_value' => $this->options['body_field'],
-      '#description' => $this->t('Select the field that will be used as the media object body.'),
+      '#description' => $this->t('Select the field that will be used as the media object heading. Exclude this field from display to prevent duplication.'),
     ];
 
     $form['image_field'] = [
@@ -81,7 +76,12 @@ class ViewsBootstrapMediaObject extends StylePluginBase {
       '#options' => $this->displayHandler->getFieldLabels(TRUE),
       '#required' => TRUE,
       '#default_value' => $this->options['image_field'],
-      '#description' => $this->t('Select the field that will be used as the media object image.'),
+      '#description' => $this->t('Select the field that will be used as the media object image. Exclude this field from display to prevent duplication.'),
+    ];
+
+    $form['body_field'] = [
+      '#title' => $this->t('Body field'),
+      '#markup' => $this->t('All fields that are not excluded from display will be shown as the body.'),
     ];
 
     $form['image_class'] = [
