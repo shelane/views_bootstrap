@@ -200,8 +200,9 @@ class ViewsBootstrapGrid extends StylePluginBase {
         4 => 4,
         6 => 6,
         12 => 12,
+        999 => $this->t('all'),
       ],
-      '#description' => $this->t('Choose the number of columns that views will wrap in a single row. This will be reflected in the HTML structure rendered regardless of the device size.'),
+      '#description' => $this->t('Choose the number of columns that views will wrap in a single row. This will be reflected in the HTML structure rendered regardless of the device size. If selecting "all" then use the alternative template.'),
     ];
 
     foreach (['xs', 'sm', 'md', 'lg'] as $size) {
