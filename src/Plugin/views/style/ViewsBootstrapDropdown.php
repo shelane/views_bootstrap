@@ -78,12 +78,12 @@ class ViewsBootstrapDropdown extends StylePluginBase {
       '#description' => $this->t('Classes for the button that is the drop-down toggle.'),
       '#type' => 'select',
       '#options' => [
-        'btn btn-default' => 'Default',
-        'btn btn-primary' => 'Primary',
-        'btn btn-success' => 'Success',
-        'btn btn-info' => 'Info',
-        'btn btn-warning' => 'Warning',
-        'btn btn-danger' => 'Danger',
+        'btn btn-default' => $this->t('Default'),
+        'btn btn-primary' => $this->t('Primary'),
+        'btn btn-success' => $this->t('Success'),
+        'btn btn-info' => $this->t('Info'),
+        'btn btn-warning' => $this->t('Warning'),
+        'btn btn-danger' => $this->t('Danger'),
       ],
       '#default_value' => $this->options['button_class'],
     ];
