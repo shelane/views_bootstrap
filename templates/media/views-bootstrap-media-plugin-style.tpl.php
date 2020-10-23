@@ -14,8 +14,13 @@
     <?php foreach ($items as $key => $item): ?>
       <li class="media">
         <?php if ($item['image_field']): ?>
+        <?php if ($row['image'] && $image_class == 'media-left'): ?>
           <div class="media-left pull-left">
             <?php print $item['image_field'] ?>
+        <?php endif ?>
+        <?php if ($row['image'] && $image_class == 'media-right'): ?>
+          <div class="media-right pull-right">
+            <?php print $row['image'] ?>
           </div>
         <?php endif ?>
 

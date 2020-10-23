@@ -14,6 +14,7 @@ function template_preprocess_views_bootstrap_media_plugin_style(&$vars) {
   $image_field = $vars['options']['image_field'];
   $heading_field = $vars['options']['heading_field'];
   $body_field = $vars['options']['body_field'];
+  $vars['image_class'] = $vars['options']['image_class'];
 
   $vars['items'] = array();
 

@@ -17,7 +17,7 @@ class ViewsBootstrapMediaPluginStyle extends views_plugin_style {
     $options = parent::option_definition();
     $options['image_field'] = array('default' => NULL);
     $options['heading_field'] = array('default' => NULL);
-    $options['body_field'] = array('default' => NULL);
+    $options['image_class'] = array('default' => 'media-left');
     return $options;
   }
 
