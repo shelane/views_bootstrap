@@ -28,6 +28,9 @@ if (!empty($title)): ?>
               aria-controls="collapse-<?php print $id . '-' . $key ?>">
               <?php print $titles[$key] ?>
             </a>
+            <?php if (isset($labels[$key])): ?>
+              <span class="badge pull-right"><?php print $labels[$key] ?></span>
+            <?php endif ?>
           </h4>
         </div>
 

@@ -146,6 +146,11 @@ function views_bootstrap_update_7101(&$sandbox) {
           $options['style_options']['behavior'] = 'closed';
           drupal_set_message("Updating accordion behavior setting to default", 'status');
         }
+        // Check accordion label setting, set undefined to empty.
+        if (!isset($options['style_options']['label_field'])) {
+          $options['style_options']['label_field'] = '';
+          drupal_set_message("Updating accordion label setting to empty", 'status');
+        }
         break;
       case 'views_bootstrap_list_group_plugin_style':
         // Check list group for panel setting.
