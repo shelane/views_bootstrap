@@ -99,12 +99,12 @@ class ViewsBootstrapPanelPluginStyle extends views_plugin_style {
       );
 
       $c_options = array(
-        'default' => 'default',
-        'primary' => 'primary',
-        'success' => 'success',
-        'info' => 'info',
-        'warning' => 'warning',
-        'danger' => 'danger',
+        'default' => t('default'),
+        'primary' => t('primary'),
+        'success' => t('success'),
+        'info' => t('info'),
+        'warning' => t('warning'),
+        'danger' => t('danger'),
       );
       $form['context'] = array(
         '#type' => 'select',
