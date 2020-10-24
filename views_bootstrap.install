@@ -92,7 +92,7 @@ function views_bootstrap_update_7100(&$sandbox) {
   }
 }
 
-/*
+/**
  * Update Views Bootstrap style configuration.
  */
 function views_bootstrap_update_7101(&$sandbox) {
@@ -131,7 +131,7 @@ function views_bootstrap_update_7101(&$sandbox) {
           drupal_set_message("Updating tabs position to justified", 'status');
           $options['style_options']['tab_position'] = 'justified';
         }
-        elseif (!isset($options['style_options']['tab_position'])){
+        elseif (!isset($options['style_options']['tab_position'])) {
           drupal_set_message("Updating tabs position to top", 'status');
           $options['style_options']['tab_position'] = 'basic';
         }
@@ -140,6 +140,7 @@ function views_bootstrap_update_7101(&$sandbox) {
           $options['style_options']['tab_fade'] = 0;
         }
         break;
+
       case 'views_bootstrap_accordion_plugin_style':
         // Check accordion behavior setting, set empty to closed.
         if (!isset($options['style_options']['behavior'])) {
@@ -152,6 +153,7 @@ function views_bootstrap_update_7101(&$sandbox) {
           drupal_set_message("Updating accordion label setting to empty", 'status');
         }
         break;
+
       case 'views_bootstrap_list_group_plugin_style':
         // Check list group for panel setting.
         if (!isset($options['style_options']['panels'])) {
@@ -159,6 +161,7 @@ function views_bootstrap_update_7101(&$sandbox) {
           drupal_set_message("Updating list group heading panel setting to default", 'status');
         }
         break;
+
       case 'views_bootstrap_media_plugin_style':
         // Remove media object body_field setting.
         unset($options['style_options']['body_field']);
@@ -175,7 +178,7 @@ function views_bootstrap_update_7101(&$sandbox) {
             $options['fields'][$field_name]['exclude'] = 1;
           }
         }
-      break;
+        break;
     }
     $options = serialize($options);
     // Update the value in the database.
