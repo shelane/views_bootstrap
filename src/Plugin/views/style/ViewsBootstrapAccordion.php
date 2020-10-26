@@ -41,6 +41,7 @@ class ViewsBootstrapAccordion extends StylePluginBase {
     $options = parent::defineOptions();
     $options['panel_title_field'] = ['default' => NULL];
     $options['behavior'] = ['default' => 'closed'];
+    $options['label_field'] = ['default' => NULL];
 
     return $options;
   }
@@ -66,7 +67,7 @@ class ViewsBootstrapAccordion extends StylePluginBase {
     $form['label_field'] = [
       '#type' => 'select',
       '#title' => t('Label field'),
-      '#options' => $this->displayHandler->getFieldLabels(TRUE),
+      '#options' => ['' => $this->t('- None -')] + $this->displayHandler->getFieldLabels(TRUE),
       '#required' => FALSE,
       '#default_value' => $this->options['label_field'],
       '#description' => $this->t('Select the field that will be used as the label.'),
