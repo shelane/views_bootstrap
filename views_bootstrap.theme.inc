@@ -226,6 +226,7 @@ function template_preprocess_views_bootstrap_panel(array &$vars) {
   $vars['id'] = ViewsBootstrap::getUniqueId($view);
   $group_title_field = isset($view->style_plugin->options['grouping'][0]) ? $view->style_plugin->options['grouping'][0]['field'] : "";
   $panel_title_field = $view->style_plugin->options['panel_title_field'];
+  $panel_label_field = $view->style_plugin->options['panel_label_field'] ?? '';
   $panel_footer_field = $view->style_plugin->options['panel_footer_field'];
   $vars['attributes']['class'][] = 'panel-group';
   $vars['panel_class'] = $view->style_plugin->options['contextual_class'];
@@ -234,6 +235,7 @@ function template_preprocess_views_bootstrap_panel(array &$vars) {
     $vars['rows'][$id] = [];
     $vars['rows'][$id]['content'] = $row;
     $vars['rows'][$id]['title'] = $view->style_plugin->getField($id, $panel_title_field);
+    $vars['rows'][$id]['label'] = $panel_label_field ? $view->style_plugin->getField($id, $panel_label_field) : '';
     $vars['rows'][$id]['footer'] = $view->style_plugin->getField($id, $panel_footer_field);
   }
   // @TODO: Make sure that $vars['rows'] is rendered array.
