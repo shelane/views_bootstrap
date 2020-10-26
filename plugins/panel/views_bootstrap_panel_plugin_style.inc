@@ -18,6 +18,7 @@ class ViewsBootstrapPanelPluginStyle extends views_plugin_style {
     $options['heading_field'] = array('default' => NULL);
     $options['title'] = array('default' => FALSE);
     $options['title_tag'] = array('default' => 'h3');
+    $options['label_field'] = array('default' => NULL);
     $options['footer_field'] = array('default' => NULL);
     $options['context'] = array('default' => 'default');
     return $options;
@@ -81,6 +82,19 @@ class ViewsBootstrapPanelPluginStyle extends views_plugin_style {
         '#states' => array(
           'visible' => array(
             ':input#title-checkbox' => array('checked' => TRUE),
+          ),
+        ),
+      );
+      $form['label_field'] = array(
+        '#type' => 'select',
+        '#title' => t('Label field'),
+        '#options' => $options,
+        '#required' => FALSE,
+        '#default_value' => $this->options['label_field'],
+        '#description' => t('Select the field that will be used as the label.'),
+        '#states' => array(
+          'invisible' => array(
+            ':input#heading-field' => array('value' => ''),
           ),
         ),
       );
