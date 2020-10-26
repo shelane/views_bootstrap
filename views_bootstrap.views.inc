@@ -87,7 +87,7 @@ function views_bootstrap_views_plugins() {
         // @TODO:  'uses row plugin' => FALSE, 'uses fields' => TRUE,
       ),
       'views_bootstrap_panel_plugin_style' => array(
-        'title' => t('Bootstrap Panel'),
+        'title' => t('Bootstrap Panels'),
         'help' => t('Bootstrap Panel Style'),
         'path' => $module_path . '/plugins/panel',
         'handler' => 'ViewsBootstrapPanelPluginStyle',

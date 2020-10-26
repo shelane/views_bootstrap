@@ -179,6 +179,21 @@ function views_bootstrap_update_7101(&$sandbox) {
           }
         }
         break;
+
+      case 'views_bootstrap_panel_plugin_style':
+        // Remove panel body_field setting.
+        unset($options['style_options']['body_field']);
+        // Set panel to exclude fields not set for heading and footer.
+        $heading = $options['style_options']['heading_field'];
+        $footer = $options['style_options']['footer_field'];
+        drupal_set_message("Updating panel settings", 'status');
+        $fields = $options['fields'];
+        foreach ($fields as $field_name => $field) {
+          if (in_array($field_name, array($heading, $footer))) {
+            drupal_set_message("Updating panel field $field_name", 'status');
+            $options['fields'][$field_name]['exclude'] = 1;
+          }
+        }
     }
     $options = serialize($options);
     // Update the value in the database.

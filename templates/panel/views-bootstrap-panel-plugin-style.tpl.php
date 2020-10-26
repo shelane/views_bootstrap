@@ -23,11 +23,9 @@ if (!empty($title)): ?>
         </div>
       <?php endif ?>
 
-      <?php if (isset($bodys[$key])): ?>
         <div class="panel-body">
-          <?php print $bodys[$key] ?>
+          <?php print $row ?>
         </div>
-      <?php endif ?>
 
       <?php if (isset($footers[$key])): ?>
         <div class="panel-footer">
