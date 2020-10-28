@@ -46,72 +46,21 @@
           <div{{ column.attributes.addClass(col_classes, options.col_class_default ? 'col-' ~ loop.index) }}>
             {{ column.content }}
           </div>
-
-          {# xs:1c, s:2c, m:2c, l:2 #}
-
-          {% if (col_xs == "col-xs-12") and (col_sm == "col-sm-6") and (col_md == "col-md-6") and (col_lg == "col-lg-6") %}
-            {% if loop.index is divisible by(2) %}
-              {# place clearfix after every second occurence #}
-              <div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
-            {% endif %}
+          {% if loop.index is divisible by (sizes.xs) %}
+            <div class="clearfix visible-xs-block"></div>
           {% endif %}
 
-          {# xs:1c, s:2c, m:2c, l:3c #}
-
-          {% if (col_xs == "col-xs-12") and (col_sm == "col-sm-6") and (col_md == "col-md-6") and (col_lg == "col-lg-4") %}
-            {% if loop.index is divisible by(2) %}
-              {# place clearfix after every second occurence #}
-              <div class="clearfix visible-sm-block visible-md-block"></div>
-            {% endif %}
-            {% if loop.index is divisible by(3) %}
-              {# place clearfix after every third occurence #}
-              <div class="clearfix visible-lg-block"></div>
-            {% endif %}
+          {% if loop.index is divisible by (sizes.sm) %}
+            <div class="clearfix visible-sm-block"></div>
           {% endif %}
 
-          {# xs:1c, s:2c, m3c, l:3#}
-
-          {% if (col_xs == "col-xs-12") and (col_sm == "col-sm-6") and (col_md == "col-md-4") and (col_lg == "col-lg-4") %}
-            {% if loop.index is divisible by(2) %}
-              {# place clearfix after every second occurence #}
-              <div class="clearfix visible-sm-block"></div>
-            {% endif %}
-            {% if loop.index is divisible by(3) %}
-              {# place clearfix after every third occurence #}
-              <div class="clearfix visible-md-block visible-lg-block"></div>
-            {% endif %}
+          {% if loop.index is divisible by (sizes.md) %}
+            <div class="clearfix visible-md-block"></div>
           {% endif %}
 
-          {# xs:1c, s:2c, m3c, l:4c #}
-
-          {% if (col_xs == "col-xs-12") and (col_sm == "col-sm-6") and (col_md == "col-md-4") and (col_lg == "col-lg-3") %}
-            {% if loop.index is divisible by(2) %}
-              {# place clearfix after every second occurence #}
-              <div class="clearfix visible-sm-block"></div>
-            {% endif %}
-            {% if loop.index is divisible by(3) %}
-              {# place clearfix after every third occurence #}
-              <div class="clearfix visible-md-block"></div>
-            {% endif %}
-            {% if loop.index is divisible by(4) %}
-              {# place clearfix after every fourth occurence #}
-              <div class="clearfix visible-lg-block"></div>
-            {% endif %}
+          {% if loop.index is divisible by (sizes.lg) %}
+            <div class="clearfix visible-lg-block"></div>
           {% endif %}
-
-          {# xs:1c, s:2c, m4c, l:4c #}
-
-          {% if (col_xs == "col-xs-12") and (col_sm == "col-sm-6") and (col_md == "col-md-3") and (col_lg == "col-lg-3") %}
-            {% if loop.index is divisible by(2) %}
-              {# place clearfix after every second occurence #}
-              <div class="clearfix visible-sm-block"></div>
-            {% endif %}
-            {% if loop.index is divisible by(4) %}
-              {# place clearfix after every fourth occurence #}
-              <div class="clearfix visible-md-block visible-lg-block"></div>
-            {% endif %}
-          {% endif %}
-
         {% endfor %}
       </div>
     {% endfor %}
